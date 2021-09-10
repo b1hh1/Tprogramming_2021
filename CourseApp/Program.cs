@@ -6,7 +6,8 @@
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine($"Hello world");
+            var calc = new Calculator();
+            Console.WriteLine(calc.Multi(5, 10));
             Console.ReadLine();
         }
     }
