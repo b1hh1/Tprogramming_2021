@@ -10,18 +10,16 @@
             const double b = 0.4;
             Console.WriteLine($"--------- TASK A --------------");
             var taskA = TaskA(a, b, 1.23, 7.23, 1.2);
-            foreach (var i in taskA)
+            foreach (var (x, y) in taskA)
             {
-                var (x, y) = i;
                 Console.WriteLine($"x={x}, y={y}");
             }
 
             Console.WriteLine($"--------- TASK B --------------");
             double[] xArray = { 1.88, 2.26, 3.84, 4.55, -6.21 };
             var taskB = TaskB(a, b, xArray);
-            foreach (var i in taskB)
+            foreach (var (x, y) in taskB)
             {
-                var (x, y) = i;
                 Console.WriteLine($"x={x}, y={y}");
             }
         }
@@ -49,8 +47,9 @@
         {
             var res = new (double, double)[xArray.Length];
             int i = 0;
-            foreach (var x in xArray)
+            for (int i1 = 0; i1 < xArray.Length; i1++)
             {
+                double x = xArray[i1];
                 var y = CalcFunc(a, b, x);
                 res[i] = (x, y);
                 i++;
