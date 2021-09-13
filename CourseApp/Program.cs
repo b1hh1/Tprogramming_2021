@@ -28,11 +28,7 @@
 
         public static double CalcFunc(double a, double b, double x)
         {
-            var numerator = Math.Pow(Math.Pow(x - a, 2), 1 / 3.0) + Math.Pow(Math.Abs(x + b), 1 / 5.0);
-            var denominator = Math.Pow(Math.Pow(x, 2) - Math.Pow(a - b, 2), 1 / 9.0);
-
-            var y = numerator / denominator;
-            return y;
+            return (Math.Pow(Math.Pow(x - a, 2), 1 / 3.0) + Math.Pow(Math.Abs(x + b), 1 / 5.0)) / Math.Pow(Math.Pow(x, 2) - Math.Pow(a - b, 2), 1 / 9.0);
         }
 
         public static (double x, double y)[] TaskA(double a, double b, double xn, double xk, double dx)
