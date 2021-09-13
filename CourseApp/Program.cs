@@ -7,34 +7,30 @@
     {
         public static void Main(string[] args)
         {
-            double a = 2.0;
-            double b = 3.0;
-            double y = 0;
-            double xStart = 0.11;
-            double xEnd = 0.36;
-            double xDelta = 0.05;
-            double[] xArr = { 0.08, 0.026, 0.35, 0.41, 0.51 };
-            Console.WriteLine($"Task A (a = {a}; b = {b}; xStart = {xStart}; xEnd = {xEnd}; xDelta = {xDelta})");
-            CalculateTaskA(a, b, y, xStart, xEnd, xDelta);
-            Console.WriteLine(" ");
-            Console.WriteLine($"Task B (a = {a}; b = {b}; x1 = {xArr[0]}; x2 = {xArr[1]}; x3 = {xArr[2]}; x4 = {xArr[3]}; x5 = {xArr[4]})");
-            CalculateTaskB(a, b, y, xArr);
+            const double a = 2.0;
+            const double b = 3.0;
+            double[] taskOneArray = { 0.11, 0.36, 0.05 };
+            double[] taskTwoArray = { 0.08, 0.026, 0.35, 0.41, 0.51 };
+            Console.WriteLine($"Task A (a = {a}; b = {b}; xStart = {taskOneArray[0]}; xEnd = {taskOneArray[1]}; xDelta = {taskOneArray[2]})");
+            CalculateTaskA(a, b, taskOneArray);
+            Console.WriteLine($"Task B (a = {a}; b = {b}; x1 = {taskTwoArray[0]}; x2 = {taskTwoArray[1]}; x3 = {taskTwoArray[2]}; x4 = {taskTwoArray[3]}; x5 = {taskTwoArray[4]})");
+            CalculateTaskB(a, b, taskTwoArray);
             Console.ReadLine();
         }
 
-        public static void CalculateTaskA(double a, double b, double y, double xStart, double xEnd, double xDelta)
+        public static void CalculateTaskA(double a, double b, double[] taskOneArray)
         {
-            for (double x = xStart; x < xEnd; x += xDelta)
+            for (double x = taskOneArray[0]; x < taskOneArray[1]; x += taskOneArray[2])
             {
                 Console.WriteLine($"  y = {Round(Asin(Pow(x, a)) + Acos(Pow(x, b)), 4)}");
             }
         }
 
-        public static void CalculateTaskB(double a, double b, double y, double[] xArr)
+        public static void CalculateTaskB(double a, double b, double[] taskTwoArray)
         {
-            for (int i = 0; i < xArr.Length; i++)
+            for (int i = 0; i < taskTwoArray.Length; i++)
             {
-                Console.WriteLine($"  y = {Round(Asin(Pow(xArr[i], a)) + Acos(Pow(xArr[i], b)), 4)}");
+                Console.WriteLine($"  y = {Round(Asin(Pow(taskTwoArray[i], a)) + Acos(Pow(taskTwoArray[i], b)), 4)}");
             }
         }
     }
