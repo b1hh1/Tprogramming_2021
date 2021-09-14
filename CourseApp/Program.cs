@@ -46,13 +46,13 @@
         public static (double x, double y)[] TaskB(double a, double b, double[] xArray)
         {
             var res = new (double, double)[xArray.Length];
-            int i = 0;
-            for (int i1 = 0; i1 < xArray.Length; i1++)
+            int counter = 0;
+            for (int i = 0; i < xArray.Length; i++)
             {
-                double x = xArray[i1];
+                double x = xArray[i];
                 var y = CalcFunc(a, b, x);
-                res[i] = (x, y);
-                i++;
+                res[counter] = (x, y);
+                counter++;
             }
 
             return res;
