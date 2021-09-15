@@ -12,11 +12,11 @@
             double[][] array = new double[2][];
             array[0] = new double[] { 0.11, 0.36, 0.05 };
             array[1] = new double[] { 0.08, 0.026, 0.35, 0.41, 0.51 };
-            Calculate(a, b, array);
+            ConsoleOutput(a, b, array);
             Console.ReadLine();
         }
 
-        public static void FillArray(double[][] array)
+        public static void RefillArray(double[][] array)
         {
             double[] arr = array[0];
             var newArrLength = ((arr[1] - arr[0]) / arr[2]) + 1;
@@ -27,9 +27,16 @@
             }
         }
 
-        public static void Calculate(double a, double b, double[][] array)
+        public static double Calculate(double a, double b, double item)
         {
-            FillArray(array);
+            var sin = Asin(Pow(item, a));
+            var cos = Acos(Pow(item, b));
+            return Round(sin + cos, 4);
+        }
+
+        public static void ConsoleOutput(double a, double b, double[][] array)
+        {
+            RefillArray(array);
             var i = 0;
             do
             {
@@ -37,7 +44,7 @@
                 Console.WriteLine($"Task {i + 1}:");
                 foreach (double item in array[i])
                 {
-                    Console.WriteLine($" {j}) x = {item}  y = {Round(Asin(Pow(item, a)) + Acos(Pow(item, b)), 4)}");
+                    Console.WriteLine($" {j}) x = {item}  y = {Calculate(a, b, item)}");
                     j++;
                 }
 
