@@ -13,7 +13,7 @@ namespace CourseApp.Tests
             var expected = 1.582;
             Calculate calculateTask = new Calculate();
             var actual = calculateTask.CalculateTask(a, b, x);
-            Assert.Equal(actual, expected);
+            Assert.Equal(expected, actual);
         }
 
         [Fact]
@@ -25,7 +25,7 @@ namespace CourseApp.Tests
             var expected = 1.592;
             Calculate calculateTask = new Calculate();
             var actual = calculateTask.CalculateTask(a, b, x);
-            Assert.Equal(actual, expected);
+            Assert.Equal(expected, actual);
         }
 
         [Fact]
@@ -37,7 +37,7 @@ namespace CourseApp.Tests
             var expected = 1.606;
             Calculate calculateTask = new Calculate();
             var actual = calculateTask.CalculateTask(a, b, x);
-            Assert.Equal(actual, expected);
+            Assert.Equal(expected, actual);
         }
 
         [Fact]
@@ -49,7 +49,7 @@ namespace CourseApp.Tests
             var expected = 1.621;
             Calculate calculateTask = new Calculate();
             var actual = calculateTask.CalculateTask(a, b, x);
-            Assert.Equal(actual, expected);
+            Assert.Equal(expected, actual);
         }
 
         [Fact]
@@ -61,7 +61,7 @@ namespace CourseApp.Tests
             var expected = 1.637;
             Calculate calculateTask = new Calculate();
             var actual = calculateTask.CalculateTask(a, b, x);
-            Assert.Equal(actual, expected);
+            Assert.Equal(expected, actual);
         }
 
         [Fact]
@@ -73,7 +73,7 @@ namespace CourseApp.Tests
             var expected = 1.654;
             Calculate calculateTask = new Calculate();
             var actual = calculateTask.CalculateTask(a, b, x);
-            Assert.Equal(actual, expected);
+            Assert.Equal(expected, actual);
         }
 
         [Fact]
@@ -85,7 +85,7 @@ namespace CourseApp.Tests
             var expected = 1.577;
             Calculate calculateTask = new Calculate();
             var actual = calculateTask.CalculateTask(a, b, x);
-            Assert.Equal(actual, expected);
+            Assert.Equal(expected, actual);
         }
 
         [Fact]
@@ -97,7 +97,7 @@ namespace CourseApp.Tests
             var expected = 1.571;
             Calculate calculateTask = new Calculate();
             var actual = calculateTask.CalculateTask(a, b, x);
-            Assert.Equal(actual, expected);
+            Assert.Equal(expected, actual);
         }
 
         [Fact]
@@ -109,7 +109,7 @@ namespace CourseApp.Tests
             var expected = 1.651;
             Calculate calculateTask = new Calculate();
             var actual = calculateTask.CalculateTask(a, b, x);
-            Assert.Equal(actual, expected);
+            Assert.Equal(expected, actual);
         }
 
         [Fact]
@@ -121,7 +121,7 @@ namespace CourseApp.Tests
             var expected = 1.671;
             Calculate calculateTask = new Calculate();
             var actual = calculateTask.CalculateTask(a, b, x);
-            Assert.Equal(actual, expected);
+            Assert.Equal(expected, actual);
         }
 
         [Fact]
@@ -133,7 +133,7 @@ namespace CourseApp.Tests
             var expected = 1.701;
             Calculate calculateTask = new Calculate();
             var actual = calculateTask.CalculateTask(a, b, x);
-            Assert.Equal(actual, expected);
+            Assert.Equal(expected, actual);
         }
     }
 }
