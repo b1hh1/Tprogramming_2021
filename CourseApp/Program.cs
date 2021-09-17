@@ -1,6 +1,7 @@
 ﻿namespace CourseApp
 {
     using System;
+    using System.Collections;
     using static System.Math;
 
     public class Program
@@ -9,21 +10,36 @@
         {
             var a = 2.0;
             var b = 3.0;
-            double[][] array = new double[2][];
-            array[0] = new double[] { 0.11, 0.36, 0.05 };
-            array[1] = new double[] { 0.08, 0.026, 0.35, 0.41, 0.51 };
-            ConsoleOutput(a, b, array);
+            ArrayList listTaskOne = new ArrayList() { 0.11, 0.36, 0.05 };
+            ArrayList listTaskTwo = new ArrayList() { 0.08, 0.026, 0.35, 0.41, 0.51 };
+            CalculateTasks(a, b, listTaskOne, listTaskTwo);
             Console.ReadLine();
         }
 
-        public static void RefillArray(double[][] array)
+        public static void FillTaskOneArrayList(double a, double b, ArrayList listTaskOne)
         {
-            double[] arr = array[0];
-            var newArrLength = ((arr[1] - arr[0]) / arr[2]) + 1;
-            Array.Resize(ref array[0], (int)newArrLength);
-            for (var i = 0; i < newArrLength; i++)
+            var xStart = (double)listTaskOne[0];
+            var xEnd = (double)listTaskOne[1];
+            var xDelta = (double)listTaskOne[2];
+            listTaskOne.Clear();
+            for (double x = xStart; x <= xEnd; x += xDelta)
             {
-                array[0][i] = arr[0] + (arr[2] * i);
+                listTaskOne.Add(x);
+            }
+
+            var listSize = listTaskOne.Count;
+            for (int i = 0; i < listSize; i++)
+            {
+                listTaskOne.Add(Calculate(a, b, (double)listTaskOne[i]));
+            }
+        }
+
+        public static void FillTaskTwoArrayList(double a, double b, ArrayList listTaskTwo)
+        {
+            var listSize = listTaskTwo.Count;
+            for (int i = 0; i < listSize; i++)
+            {
+                listTaskTwo.Add(Calculate(a, b, (double)listTaskTwo[i]));
             }
         }
 
@@ -34,23 +50,26 @@
             return Round(sin + cos, 3);
         }
 
-        public static void ConsoleOutput(double a, double b, double[][] array)
+        public static void ConsoleOutput(ArrayList listTaskOne, ArrayList listTaskTwo)
         {
-            RefillArray(array);
-            var i = 0;
-            do
+            Console.WriteLine("Task 1:");
+            for (int i = 0; i < (listTaskOne.Count / 2); i++)
             {
-                var j = 1;
-                Console.WriteLine($"Task {i + 1}:");
-                foreach (double item in array[i])
-                {
-                    Console.WriteLine($" {j}) x = {item}  y = {Calculate(a, b, item)}");
-                    j++;
-                }
-
-                i++;
+                Console.WriteLine($"  {i + 1}) x = {listTaskOne[i]}  y = {listTaskOne[(listTaskOne.Count / 2) + i]}");
             }
-            while (i < 2);
+
+            Console.WriteLine("Task 2:");
+            for (int i = 0; i < (listTaskTwo.Count / 2); i++)
+            {
+                Console.WriteLine($"  {i + 1}) x = {listTaskTwo[i]}  y = {listTaskTwo[(listTaskTwo.Count / 2) + i]}");
+            }
+        }
+
+        public static void CalculateTasks(double a, double b, ArrayList listTaskOne, ArrayList listTaskTwo)
+        {
+            FillTaskOneArrayList(a, b, listTaskOne);
+            FillTaskTwoArrayList(a, b, listTaskTwo);
+            ConsoleOutput(listTaskOne, listTaskTwo);
         }
     }
 }

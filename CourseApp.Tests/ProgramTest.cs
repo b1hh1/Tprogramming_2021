@@ -2,7 +2,7 @@ namespace CourseApp.Tests
 {
     using Xunit;
 
-    public class ProgramTest
+    public class CalculateTest
     {
         [Fact]
         public void TestTaskOne1()
