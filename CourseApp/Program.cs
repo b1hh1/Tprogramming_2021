@@ -31,7 +31,7 @@
         {
             var sin = Asin(Pow(item, a));
             var cos = Acos(Pow(item, b));
-            return Round(sin + cos, 4);
+            return Round(sin + cos, 3);
         }
 
         public static void ConsoleOutput(double a, double b, double[][] array)
