@@ -1,7 +1,7 @@
 ﻿namespace CourseApp
 {
     using System;
-    using System.Collections;
+    using System.Collections.Generic;
     using static System.Math;
 
     public class Program
@@ -10,13 +10,13 @@
         {
             var a = 2.0;
             var b = 3.0;
-            ArrayList listTaskOne = new ArrayList() { 0.11, 0.36, 0.05 };
-            ArrayList listTaskTwo = new ArrayList() { 0.08, 0.026, 0.35, 0.41, 0.51 };
+            List<double> listTaskOne = new List<double>() { 0.11, 0.36, 0.05 };
+            List<double> listTaskTwo = new List<double>() { 0.08, 0.026, 0.35, 0.41, 0.51 };
             CalculateTasks(a, b, listTaskOne, listTaskTwo);
             Console.ReadLine();
         }
 
-        public static void FillTaskOneArrayList(double a, double b, ArrayList listTaskOne)
+        public static void FillTaskOneList(double a, double b, List<double> listTaskOne)
         {
             var xStart = (double)listTaskOne[0];
             var xEnd = (double)listTaskOne[1];
@@ -34,7 +34,7 @@
             }
         }
 
-        public static void FillTaskTwoArrayList(double a, double b, ArrayList listTaskTwo)
+        public static void FillTaskTwoList(double a, double b, List<double> listTaskTwo)
         {
             var listSize = listTaskTwo.Count;
             for (int i = 0; i < listSize; i++)
@@ -50,7 +50,7 @@
             return Round(sin + cos, 3);
         }
 
-        public static void ConsoleOutput(ArrayList listTaskOne, ArrayList listTaskTwo)
+        public static void ConsoleOutput(List<double> listTaskOne, List<double> listTaskTwo)
         {
             Console.WriteLine("Task 1:");
             for (int i = 0; i < (listTaskOne.Count / 2); i++)
@@ -65,10 +65,10 @@
             }
         }
 
-        public static void CalculateTasks(double a, double b, ArrayList listTaskOne, ArrayList listTaskTwo)
+        public static void CalculateTasks(double a, double b, List<double> listTaskOne, List<double> listTaskTwo)
         {
-            FillTaskOneArrayList(a, b, listTaskOne);
-            FillTaskTwoArrayList(a, b, listTaskTwo);
+            FillTaskOneList(a, b, listTaskOne);
+            FillTaskTwoList(a, b, listTaskTwo);
             ConsoleOutput(listTaskOne, listTaskTwo);
         }
     }
