@@ -10,7 +10,7 @@
             Console.WriteLine(calc.Multi(5, 10));
             Console.ReadLine();
             var equation = new Equation();
-            Console.WriteLine(equation.Function(0.11));
+            Console.WriteLine(equation.Function(-0.11));
             Console.ReadLine();
         }
     }
