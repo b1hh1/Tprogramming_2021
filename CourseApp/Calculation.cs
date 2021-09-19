@@ -14,10 +14,7 @@ namespace CourseApp
                 listA.Add(Function(a, x));
             }
 
-            foreach (var y in listA)
-            {
-                Console.WriteLine($"y = {y}");
-            }
+            ConsoleOutput(listA);
         }
 
         public void TaskB(double a, List<double> xs)
@@ -28,16 +25,21 @@ namespace CourseApp
                 listB.Add(Function(a, x));
             }
 
-            foreach (var y in listB)
-            {
-                Console.WriteLine($"y = {y}");
-            }
+            ConsoleOutput(listB);
         }
 
-        public double Function(double a, double x)
+        private double Function(double a, double x)
         {
             var y = Pow(a, Pow(x, 2.0) - 1.0) - Log10(Pow(x, 2.0) - 1.0) - Pow(Pow(x, 2.0) - 1.0, 1.0 / 3.0);
             return Round(y, 4);
+        }
+
+        private void ConsoleOutput(List<double> ys)
+        {
+            foreach (var y in ys)
+            {
+                Console.WriteLine($"y = {y}");
+            }
         }
     }
 }
