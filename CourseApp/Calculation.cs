@@ -28,7 +28,7 @@ namespace CourseApp
             ConsoleOutput(listB);
         }
 
-        private double Function(double a, double x)
+        public double Function(double a, double x)
         {
             var y = Pow(a, Pow(x, 2.0) - 1.0) - Log10(Pow(x, 2.0) - 1.0) - Pow(Pow(x, 2.0) - 1.0, 1.0 / 3.0);
             return Round(y, 4);
