@@ -2,10 +2,10 @@ namespace CourseApp.Tests
 {
     using Xunit;
 
-    public class TestForTasks
+    public class TestForCalculateTasks
     {
         [Fact]
-        public void TestTaskOne1()
+        public void TestCalculateOne1()
         {
             var a = 2.0;
             var b = 3.0;
@@ -17,7 +17,7 @@ namespace CourseApp.Tests
         }
 
         [Fact]
-        public void TestTaskOne2()
+        public void TestCalculateOne2()
         {
             var a = 2.0;
             var b = 3.0;
@@ -29,7 +29,7 @@ namespace CourseApp.Tests
         }
 
         [Fact]
-        public void TestTaskOne3()
+        public void TestCalculateOne3()
         {
             var a = 2.0;
             var b = 3.0;
@@ -41,7 +41,7 @@ namespace CourseApp.Tests
         }
 
         [Fact]
-        public void TestTaskOne4()
+        public void TestCalculateOne4()
         {
             var a = 2.0;
             var b = 3.0;
@@ -53,7 +53,7 @@ namespace CourseApp.Tests
         }
 
         [Fact]
-        public void TestTaskOne5()
+        public void TestCalculateOne5()
         {
             var a = 2.0;
             var b = 3.0;
@@ -65,7 +65,7 @@ namespace CourseApp.Tests
         }
 
         [Fact]
-        public void TestTaskOne6()
+        public void TestCalculateOne6()
         {
             var a = 2.0;
             var b = 3.0;
@@ -77,7 +77,7 @@ namespace CourseApp.Tests
         }
 
         [Fact]
-        public void TestTaskTwo1()
+        public void TestCalculateTwo1()
         {
             var a = 2.0;
             var b = 3.0;
@@ -89,7 +89,7 @@ namespace CourseApp.Tests
         }
 
         [Fact]
-        public void TestTaskTwo2()
+        public void TestCalculateTwo2()
         {
             var a = 2.0;
             var b = 3.0;
@@ -101,7 +101,7 @@ namespace CourseApp.Tests
         }
 
         [Fact]
-        public void TestTaskTwo3()
+        public void TestCalculateTwo3()
         {
             var a = 2.0;
             var b = 3.0;
@@ -113,7 +113,7 @@ namespace CourseApp.Tests
         }
 
         [Fact]
-        public void TestTaskTwo4()
+        public void TestCalculateTwo4()
         {
             var a = 2.0;
             var b = 3.0;
@@ -125,7 +125,7 @@ namespace CourseApp.Tests
         }
 
         [Fact]
-        public void TestTaskTwo5()
+        public void TestCalculateTwo5()
         {
             var a = 2.0;
             var b = 3.0;

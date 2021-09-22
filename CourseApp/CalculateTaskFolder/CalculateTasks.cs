@@ -6,7 +6,16 @@ namespace CourseApp
 
     public class CalculateTasks
     {
-        public void StartCalculate()
+        public CalculateTasks(double a, double b)
+        {
+            this.A = a;
+            this.A = b;
+            var listTaskOne = new List<double>() { 0.11, 0.36, 0.05 };
+            var listTaskTwo = new List<double>() { 0.08, 0.026, 0.35, 0.41, 0.51 };
+            TaskCalculate(a, b, listTaskOne, listTaskTwo);
+        }
+
+        public CalculateTasks()
         {
             var a = 2.0;
             var b = 3.0;
@@ -14,6 +23,12 @@ namespace CourseApp
             var listTaskTwo = new List<double>() { 0.08, 0.026, 0.35, 0.41, 0.51 };
             TaskCalculate(a, b, listTaskOne, listTaskTwo);
         }
+
+        public double A { get; set; }
+
+        public double B { get; set; }
+
+        public string String { get; set; }
 
         public double Calculate(double a, double b, double item)
         {
@@ -49,26 +64,29 @@ namespace CourseApp
             }
         }
 
-        private void ConsoleOutput(List<double> listTaskOne, List<double> listTaskTwo)
+        private void ConsoleOutput(double a, double b, List<double> listTaskOne, List<double> listTaskTwo)
         {
-            Console.WriteLine("Task 1:");
+            Console.WriteLine($"Variables: a = {a}; b = {b}");
             for (int i = 0; i < (listTaskOne.Count / 2); i++)
             {
-                Console.WriteLine($"  {i + 1}) x = {listTaskOne[i]}  y = {listTaskOne[(listTaskOne.Count / 2) + i]}");
+                String += $"{i + 1}) x = {listTaskOne[i]}  y = {listTaskOne[(listTaskOne.Count / 2) + i]}  ";
             }
 
-            Console.WriteLine("Task 2:");
+            Console.WriteLine($"Task 1: {String}");
+            String = null;
             for (int i = 0; i < (listTaskTwo.Count / 2); i++)
             {
-                Console.WriteLine($"  {i + 1}) x = {listTaskTwo[i]}  y = {listTaskTwo[(listTaskTwo.Count / 2) + i]}");
+                String += $"{i + 1}) x = {listTaskTwo[i]}  y = {listTaskTwo[(listTaskTwo.Count / 2) + i]}  ";
             }
+
+            Console.WriteLine($"Task 2: {String} \n");
         }
 
         private void TaskCalculate(double a, double b, List<double> listTaskOne, List<double> listTaskTwo)
         {
             FillTaskOneList(a, b, listTaskOne);
             FillTaskTwoList(a, b, listTaskTwo);
-            ConsoleOutput(listTaskOne, listTaskTwo);
+            ConsoleOutput(a, b, listTaskOne, listTaskTwo);
         }
     }
 }
