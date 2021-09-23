@@ -8,8 +8,6 @@ namespace CourseApp
     {
         public CalculateTasks(double a, double b)
         {
-            this.A = a;
-            this.A = b;
             var listTaskOne = new List<double>() { 0.11, 0.36, 0.05 };
             var listTaskTwo = new List<double>() { 0.08, 0.026, 0.35, 0.41, 0.51 };
             TaskCalculate(a, b, listTaskOne, listTaskTwo);
@@ -17,18 +15,12 @@ namespace CourseApp
 
         public CalculateTasks()
         {
-            var a = 2.0;
-            var b = 3.0;
+            var a = 3.0;
+            var b = 2.0;
             var listTaskOne = new List<double>() { 0.11, 0.36, 0.05 };
             var listTaskTwo = new List<double>() { 0.08, 0.026, 0.35, 0.41, 0.51 };
             TaskCalculate(a, b, listTaskOne, listTaskTwo);
         }
-
-        public double A { get; set; }
-
-        public double B { get; set; }
-
-        public string String { get; set; }
 
         public double Calculate(double a, double b, double item)
         {
@@ -66,20 +58,21 @@ namespace CourseApp
 
         private void ConsoleOutput(double a, double b, List<double> listTaskOne, List<double> listTaskTwo)
         {
+            string stringOutput = null;
             Console.WriteLine($"Variables: a = {a}; b = {b}");
             for (int i = 0; i < (listTaskOne.Count / 2); i++)
             {
-                String += $"{i + 1}) x = {listTaskOne[i]}  y = {listTaskOne[(listTaskOne.Count / 2) + i]}  ";
+                stringOutput += $"{i + 1}) x = {listTaskOne[i]}  y = {listTaskOne[(listTaskOne.Count / 2) + i]}  ";
             }
 
-            Console.WriteLine($"Task 1: {String}");
-            String = null;
+            Console.WriteLine($"Task 1: {stringOutput}");
+            stringOutput = null;
             for (int i = 0; i < (listTaskTwo.Count / 2); i++)
             {
-                String += $"{i + 1}) x = {listTaskTwo[i]}  y = {listTaskTwo[(listTaskTwo.Count / 2) + i]}  ";
+                stringOutput += $"{i + 1}) x = {listTaskTwo[i]}  y = {listTaskTwo[(listTaskTwo.Count / 2) + i]}  ";
             }
 
-            Console.WriteLine($"Task 2: {String} \n");
+            Console.WriteLine($"Task 2: {stringOutput} \n");
         }
 
         private void TaskCalculate(double a, double b, List<double> listTaskOne, List<double> listTaskTwo)

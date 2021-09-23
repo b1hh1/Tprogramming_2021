@@ -7,14 +7,14 @@ namespace CourseApp
     {
         public ClassTask(string name, string extension, double weight, string weightModificator)
         {
-            Document textFile = new FileCreator(name, extension, weight, weightModificator);
-            Console.WriteLine(textFile.Display());
+            Document file = new FileCreator(name, extension, weight, weightModificator);
+            Console.WriteLine(file.Display());
         }
 
         public ClassTask()
         {
-            Document textFile = new FileCreator();
-            Console.WriteLine(textFile.Display());
+            Document file = new FileCreator();
+            Console.WriteLine(file.Display());
         }
     }
 }

@@ -5,13 +5,16 @@ namespace CourseApp
 
     public class FileCreator : Document
     {
+        private string _extension;
+        private double _weight;
+        private string _weightModificator;
+
         public FileCreator(string name, string extension, double weight, string weightModificator)
         : base(name)
         {
             Extension = extension;
             Weight = weight;
             WeightModificator = weightModificator;
-            CheckException();
         }
 
         public FileCreator()
@@ -22,16 +25,64 @@ namespace CourseApp
             RandomWeightModificator();
         }
 
-        public string Extension { get; set; }
+        public string Extension
+        {
+            get
+            {
+                return _extension;
+            }
 
-        public double Weight { get; set; }
+            set
+            {
+                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
+                {
+                    throw new Exception("Invalid extension. Extension can not be null.");
+                }
 
-        public string WeightModificator { get; set; }
+                _extension = value;
+            }
+        }
+
+        public double Weight
+        {
+            get
+            {
+                return _weight;
+            }
+
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new Exception("Invalid weight. Weight can not be below zero.");
+                }
+
+                _weight = value;
+            }
+        }
+
+        public string WeightModificator
+        {
+            get
+            {
+                return _weightModificator;
+            }
+
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new Exception("Invalid weightModificator. WeightModificator can not be null.");
+                }
+
+                _weightModificator = value;
+            }
+        }
 
         public void RandomExtension()
         {
             var rnd = new Random();
-            switch (rnd.Next(0, 5))
+            switch (rnd.Next(0, 14))
             {
                 case 0:
                     Extension = ".txt";
@@ -50,6 +101,33 @@ namespace CourseApp
                     break;
                 case 5:
                     Extension = ".HEIC";
+                    break;
+                case 6:
+                    Extension = ".png";
+                    break;
+                case 7:
+                    Extension = ".cs";
+                    break;
+                case 8:
+                    Extension = ".py";
+                    break;
+                case 9:
+                    Extension = ".pages";
+                    break;
+                case 10:
+                    Extension = ".abb";
+                    break;
+                case 11:
+                    Extension = ".apk";
+                    break;
+                case 12:
+                    Extension = ".moc";
+                    break;
+                case 13:
+                    Extension = ".mp4";
+                    break;
+                case 14:
+                    Extension = ".mp3";
                     break;
             }
         }
@@ -83,47 +161,20 @@ namespace CourseApp
         public void RandomWeight()
         {
             var rndValue = new Random();
-            Weight = Round(rndValue.NextDouble(), 1);
-        }
-
-        public void CheckExtension()
-        {
-            if (Extension == " " || Extension == null)
+            var value = (rndValue.NextDouble() + rndValue.NextDouble()) / rndValue.NextDouble();
+            if (value == 0)
             {
-                Console.WriteLine("Invalid extension. Extension can not be null.");
-                Environment.Exit(2);
+                RandomWeight();
             }
-        }
-
-        public void CheckWeight()
-        {
-            if (Weight <= 0)
+            else
             {
-                Console.WriteLine("Invalid weight. Weight can not be below zero.");
-                Environment.Exit(3);
+                Weight = Round(value, 2);
             }
-        }
-
-        public void CheckWeightModificator()
-        {
-            if (WeightModificator == " " || WeightModificator == null)
-            {
-                Console.WriteLine("Invalid weightModificator. WeightModificator can not be null.");
-                Environment.Exit(4);
-            }
-        }
-
-        public void CheckException()
-        {
-            CheckExtension();
-            CheckWeight();
-            CheckWeightModificator();
         }
 
         public override string Display()
         {
-            var message = $"{Name}{Extension} {Weight}{WeightModificator}";
-            return message;
+            return $"{Name}{Extension} {Weight}{WeightModificator}";
         }
     }
 }

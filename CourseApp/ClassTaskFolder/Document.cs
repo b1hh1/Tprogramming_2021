@@ -4,10 +4,11 @@ namespace CourseApp
 
     public abstract class Document
     {
+        private string _name;
+
         public Document(string name)
         {
             Name = name;
-            CheckName();
         }
 
         public Document()
@@ -15,12 +16,28 @@ namespace CourseApp
             RandomName();
         }
 
-        public string Name { get; set; }
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new Exception("Invalid name. Name can not be null.");
+                }
+
+                _name = value;
+            }
+        }
 
         public void RandomName()
         {
             var rnd = new Random();
-            switch (rnd.Next(0, 5))
+            switch (rnd.Next(0, 14))
             {
                 case 0:
                     Name = "isuct";
@@ -40,15 +57,33 @@ namespace CourseApp
                 case 5:
                     Name = "Page";
                     break;
-            }
-        }
-
-        public void CheckName()
-        {
-            if (Name == " " || Name == null)
-            {
-                Console.WriteLine("Invalid name. Name can not be null.");
-                Environment.Exit(1);
+                case 6:
+                    Name = "Document";
+                    break;
+                case 7:
+                    Name = "Cat";
+                    break;
+                case 8:
+                    Name = "Car";
+                    break;
+                case 9:
+                    Name = "University";
+                    break;
+                case 10:
+                    Name = "Video";
+                    break;
+                case 11:
+                    Name = "Lesson";
+                    break;
+                case 12:
+                    Name = "Work";
+                    break;
+                case 13:
+                    Name = "Weather";
+                    break;
+                case 14:
+                    Name = "Music";
+                    break;
             }
         }
 

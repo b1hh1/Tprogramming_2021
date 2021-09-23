@@ -7,7 +7,7 @@
         public static void Main(string[] args)
         {
             Console.WriteLine("_CalculateTasks_");
-            var calculateTasksOne = new CalculateTasks(3, 2);
+            var calculateTasksOne = new CalculateTasks(2, 3);
             var calculateTasksTwo = new CalculateTasks();
             Console.WriteLine("_ClassTask_");
             var classTaskOne = new ClassTask("VS Code", ".exe", 1.5, "GB");
