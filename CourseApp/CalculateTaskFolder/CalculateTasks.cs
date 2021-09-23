@@ -58,7 +58,7 @@ namespace CourseApp
 
         private void ConsoleOutput(double a, double b, List<double> listTaskOne, List<double> listTaskTwo)
         {
-            string stringOutput = null;
+            string stringOutput = string.Empty;
             Console.WriteLine($"Variables: a = {a}; b = {b}");
             for (int i = 0; i < (listTaskOne.Count / 2); i++)
             {
@@ -66,7 +66,7 @@ namespace CourseApp
             }
 
             Console.WriteLine($"Task 1: {stringOutput}");
-            stringOutput = null;
+            stringOutput = string.Empty;
             for (int i = 0; i < (listTaskTwo.Count / 2); i++)
             {
                 stringOutput += $"{i + 1}) x = {listTaskTwo[i]}  y = {listTaskTwo[(listTaskTwo.Count / 2) + i]}  ";

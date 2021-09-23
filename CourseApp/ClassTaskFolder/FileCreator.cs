@@ -20,9 +20,10 @@ namespace CourseApp
         public FileCreator()
         : base()
         {
-            RandomExtension();
-            RandomWeight();
-            RandomWeightModificator();
+            var generator = new RandomValueGenerator();
+            Extension = generator.RandomExtension();
+            Weight = generator.RandomWeight();
+            WeightModificator = generator.RandomWeightModificator();
         }
 
         public string Extension
@@ -76,99 +77,6 @@ namespace CourseApp
                 }
 
                 _weightModificator = value;
-            }
-        }
-
-        public void RandomExtension()
-        {
-            var rnd = new Random();
-            switch (rnd.Next(0, 14))
-            {
-                case 0:
-                    Extension = ".txt";
-                    break;
-                case 1:
-                    Extension = ".pdf";
-                    break;
-                case 2:
-                    Extension = ".jpg";
-                    break;
-                case 3:
-                    Extension = ".exe";
-                    break;
-                case 4:
-                    Extension = ".html";
-                    break;
-                case 5:
-                    Extension = ".HEIC";
-                    break;
-                case 6:
-                    Extension = ".png";
-                    break;
-                case 7:
-                    Extension = ".cs";
-                    break;
-                case 8:
-                    Extension = ".py";
-                    break;
-                case 9:
-                    Extension = ".pages";
-                    break;
-                case 10:
-                    Extension = ".abb";
-                    break;
-                case 11:
-                    Extension = ".apk";
-                    break;
-                case 12:
-                    Extension = ".moc";
-                    break;
-                case 13:
-                    Extension = ".mp4";
-                    break;
-                case 14:
-                    Extension = ".mp3";
-                    break;
-            }
-        }
-
-        public void RandomWeightModificator()
-        {
-            var rnd = new Random();
-            switch (rnd.Next(0, 5))
-            {
-                case 0:
-                    WeightModificator = "B";
-                    break;
-                case 1:
-                    WeightModificator = "KB";
-                    break;
-                case 2:
-                    WeightModificator = "MB";
-                    break;
-                case 3:
-                    WeightModificator = "GB";
-                    break;
-                case 4:
-                    WeightModificator = "TB";
-                    break;
-                case 5:
-                    WeightModificator = "PB";
-                    break;
-            }
-        }
-
-        public void RandomWeight()
-        {
-            var rndValue = new Random();
-            var value = (rndValue.NextDouble() + rndValue.NextDouble()) / rndValue.NextDouble();
-            if (value == 0)
-            {
-                RandomWeight();
-            }
-            else
-            {
-                Weight = Round(value, 2);
             }
         }
 
