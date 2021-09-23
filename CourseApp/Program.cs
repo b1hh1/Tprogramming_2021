@@ -12,9 +12,9 @@
             var task = new Tasks();
             double[] taskA = task.TaskA(0.11, 0.36, 0.05);
             foreach (double i in taskA)
-                {
-                    Console.WriteLine(i);
-                }
+            {
+                Console.WriteLine(i);
+            }
 
             Console.ReadLine();
             double[] num = { 0.2, 0.3, 0.38, 0.43, 0.57 };
