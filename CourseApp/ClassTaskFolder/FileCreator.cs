@@ -37,7 +37,7 @@ namespace CourseApp
             {
                 if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
                 {
-                    throw new Exception("Invalid extension. Extension can not be null.");
+                    throw new Exception("Invalid extension. Extension can not be null or empty.");
                 }
 
                 _extension = value;
@@ -73,7 +73,7 @@ namespace CourseApp
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new Exception("Invalid weightModificator. WeightModificator can not be null.");
+                    throw new Exception("Invalid weightModificator. WeightModificator can not be null or empty.");
                 }
 
                 _weightModificator = value;

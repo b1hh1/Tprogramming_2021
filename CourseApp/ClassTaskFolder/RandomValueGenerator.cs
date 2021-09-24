@@ -5,6 +5,62 @@ namespace CourseApp
 
     public class RandomValueGenerator
     {
+        public string RandomName()
+        {
+            var value = string.Empty;
+            var rnd = new Random();
+            switch (rnd.Next(0, 14))
+            {
+                case 0:
+                    value = "isuct";
+                    break;
+                case 1:
+                    value = "Funny";
+                    break;
+                case 2:
+                    value = "Game";
+                    break;
+                case 3:
+                    value = "IDE";
+                    break;
+                case 4:
+                    value = "Test";
+                    break;
+                case 5:
+                    value = "Page";
+                    break;
+                case 6:
+                    value = "Document";
+                    break;
+                case 7:
+                    value = "Cat";
+                    break;
+                case 8:
+                    value = "Car";
+                    break;
+                case 9:
+                    value = "University";
+                    break;
+                case 10:
+                    value = "Video";
+                    break;
+                case 11:
+                    value = "Lesson";
+                    break;
+                case 12:
+                    value = "Work";
+                    break;
+                case 13:
+                    value = "Weather";
+                    break;
+                case 14:
+                    value = "Music";
+                    break;
+            }
+
+            return value;
+        }
+
         public string RandomExtension()
         {
             var value = string.Empty;
@@ -61,6 +117,18 @@ namespace CourseApp
             return value;
         }
 
+        public double RandomWeight()
+        {
+            var rndValue = new Random();
+            var value = (rndValue.NextDouble() + rndValue.NextDouble()) / rndValue.NextDouble();
+            if (value == 0)
+            {
+                RandomWeight();
+            }
+
+            return Round(value, 2);
+        }
+
         public string RandomWeightModificator()
         {
             var value = string.Empty;
@@ -88,18 +156,6 @@ namespace CourseApp
             }
 
             return value;
-        }
-
-        public double RandomWeight()
-        {
-            var rndValue = new Random();
-            var value = (rndValue.NextDouble() + rndValue.NextDouble()) / rndValue.NextDouble();
-            if (value == 0)
-            {
-                RandomWeight();
-            }
-
-            return Round(value, 2);
         }
     }
 }
