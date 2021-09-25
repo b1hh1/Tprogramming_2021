@@ -7,8 +7,8 @@ namespace CourseApp
     {
         public Calc()
         {
-            var a = 2.0;
-            var b = 3.0;
+            var a = 0.8;
+            var b = 0.4;
             var xs = 1.23;
             var xe = 7.23;
             var dx = 1.2;
