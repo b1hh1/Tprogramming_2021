@@ -2,6 +2,7 @@ namespace CourseApp
 {
     using System;
     using System.Collections.Generic;
+    using Kantaiko.ConsoleFormatting;
 
     public class Calc
     {
@@ -53,19 +54,19 @@ namespace CourseApp
 
         public void OutputA(List<double> listA)
         {
-            Console.WriteLine("-----------Task A-----------");
+            Console.WriteLine(Colors.FgCyan("-----------Task A-----------").BgMagenta());
             for (int i = 0; i < (listA.Count / 2); i++)
             {
-                Console.WriteLine($"x = {listA[i]}  y = {listA[(listA.Count / 2) + i]}"); // x - the first element, y - the first element from the middle
+                Console.WriteLine(Colors.FgCyan($"x = {listA[i]}  y = {listA[(listA.Count / 2) + i]}").BgMagenta()); // x - the first element, y - the first element from the middle
             }
         }
 
         public void OutputB(List<double> listB)
         {
-            Console.WriteLine("-----------Task B-----------");
+            Console.WriteLine(Colors.FgCyan("-----------Task B-----------").BgMagenta());
             for (int i = 0; i < (listB.Count / 2); i++)
             {
-                Console.WriteLine($"x = {listB[i]}  y = {listB[(listB.Count / 2) + i]}");
+                Console.WriteLine(Colors.FgCyan($"x = {listB[i]}  y = {listB[(listB.Count / 2) + i]}").BgMagenta());
             }
         }
 
