@@ -88,4 +88,4 @@ namespace CourseApp.Tests
             Assert.Equal(expected, actual);
         }
     }
-} 
+}
