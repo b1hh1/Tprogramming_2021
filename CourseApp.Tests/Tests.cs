@@ -12,7 +12,7 @@ namespace CourseApp.Tests
             var expected = 0.8257;
             var execution = new Calculation();
             var actual = execution.Function(a, x);
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected, actual, 3);
         }
 
         [Fact]
@@ -23,7 +23,7 @@ namespace CourseApp.Tests
             var expected = 0.9182;
             var execution = new Calculation();
             var actual = execution.Function(a, x);
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected, actual, 3);
         }
 
         [Fact]
@@ -34,7 +34,7 @@ namespace CourseApp.Tests
             var expected = 3.9286;
             var execution = new Calculation();
             var actual = execution.Function(a, x);
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected, actual, 3);
         }
 
         [Fact]
@@ -45,7 +45,7 @@ namespace CourseApp.Tests
             var expected = 385.8624;
             var execution = new Calculation();
             var actual = execution.Function(a, x);
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected, actual, 3);
         }
 
         [Fact]
@@ -56,7 +56,7 @@ namespace CourseApp.Tests
             var expected = 0.6838;
             var execution = new Calculation();
             var actual = execution.Function(a, x);
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected, actual, 3);
         }
 
         [Fact]
@@ -67,7 +67,7 @@ namespace CourseApp.Tests
             var expected = 0.6145;
             var execution = new Calculation();
             var actual = execution.Function(a, x);
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected, actual, 3);
         }
 
         [Fact]
@@ -78,7 +78,7 @@ namespace CourseApp.Tests
             var expected = 8.566;
             var execution = new Calculation();
             var actual = execution.Function(a, x);
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected, actual, 3);
         }
     }
 }
