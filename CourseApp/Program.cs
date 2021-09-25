@@ -1,13 +1,13 @@
 ﻿namespace CourseApp
 {
-    using System;
+    using CourseApp.Core;
+    using CourseApp.Tasks.MathTask;
 
     public class Program
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine($"Hello world");
-            Console.ReadLine();
+            TaskRunner.Run<MathTask>();
         }
     }
 }
