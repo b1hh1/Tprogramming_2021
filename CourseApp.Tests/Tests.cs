@@ -10,10 +10,10 @@ namespace CourseApp.Tests
             var a = 0.8;
             var b = 0.4;
             var x = 1.23;
-            var expected = 2.342;
+            var expected = 1.617;
             var execution = new Calc();
             var actual = execution.CalcFunc(a, b, x);
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected, actual, 3);
         }
 
         [Fact]
@@ -22,10 +22,10 @@ namespace CourseApp.Tests
             var a = 0.8;
             var b = 0.4;
             var x = 6.03;
-            var expected = 2.749;
+            var expected = 2.996;
             var execution = new Calc();
             var actual = execution.CalcFunc(a, b, x);
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected, actual, 3);
         }
 
         [Fact]
@@ -34,10 +34,10 @@ namespace CourseApp.Tests
             var a = 0.8;
             var b = 0.4;
             var x = 3.63;
-            var expected = 2.155;
+            var expected = 2.498;
             var execution = new Calc();
             var actual = execution.CalcFunc(a, b, x);
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected, actual, 3);
         }
 
         [Fact]
@@ -46,10 +46,10 @@ namespace CourseApp.Tests
             var a = 0.8;
             var b = 0.4;
             var x = 4.83;
-            var expected = 2.486;
+            var expected = 2.768;
             var execution = new Calc();
             var actual = execution.CalcFunc(a, b, x);
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected, actual, 3);
         }
 
         [Fact]
@@ -58,10 +58,10 @@ namespace CourseApp.Tests
             var a = 0.8;
             var b = 0.4;
             var x = 3.84;
-            var expected = 2.22;
+            var expected = 2.549;
             var execution = new Calc();
             var actual = execution.CalcFunc(a, b, x);
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected, actual, 3);
         }
 
         [Fact]
@@ -70,10 +70,10 @@ namespace CourseApp.Tests
             var a = 0.8;
             var b = 0.4;
             var x = 4.55;
-            var expected = 2.416;
+            var expected = 2.709;
             var execution = new Calc();
             var actual = execution.CalcFunc(a, b, x);
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected, actual, 3);
         }
 
         [Fact]
@@ -82,10 +82,10 @@ namespace CourseApp.Tests
             var a = 0.8;
             var b = 0.4;
             var x = -6.21;
-            var expected = 3.564;
+            var expected = 3.39;
             var execution = new Calc();
             var actual = execution.CalcFunc(a, b, x);
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected, actual, 3);
         }
     }
 }
