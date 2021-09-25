@@ -7,120 +7,22 @@ namespace CourseApp
     {
         public string RandomName()
         {
-            var value = string.Empty;
+            string[] name = { "isuct", "Funny", "Test", "Car", "Page", "IDE", "Game", "Video", "Music", "Work" };
             var rnd = new Random();
-            switch (rnd.Next(0, 14))
-            {
-                case 0:
-                    value = "isuct";
-                    break;
-                case 1:
-                    value = "Funny";
-                    break;
-                case 2:
-                    value = "Game";
-                    break;
-                case 3:
-                    value = "IDE";
-                    break;
-                case 4:
-                    value = "Test";
-                    break;
-                case 5:
-                    value = "Page";
-                    break;
-                case 6:
-                    value = "Document";
-                    break;
-                case 7:
-                    value = "Cat";
-                    break;
-                case 8:
-                    value = "Car";
-                    break;
-                case 9:
-                    value = "University";
-                    break;
-                case 10:
-                    value = "Video";
-                    break;
-                case 11:
-                    value = "Lesson";
-                    break;
-                case 12:
-                    value = "Work";
-                    break;
-                case 13:
-                    value = "Weather";
-                    break;
-                case 14:
-                    value = "Music";
-                    break;
-            }
-
-            return value;
+            return name[rnd.Next(0, name.Length - 1)];
         }
 
         public string RandomExtension()
         {
-            var value = string.Empty;
+            string[] extension = { ".txt", ".pdf", ".jpg", ".cs", ".html", ".png", ".abb", ".mp3", ".mp4" };
             var rnd = new Random();
-            switch (rnd.Next(0, 14))
-            {
-                case 0:
-                    value = ".txt";
-                    break;
-                case 1:
-                    value = ".pdf";
-                    break;
-                case 2:
-                    value = ".jpg";
-                    break;
-                case 3:
-                    value = ".exe";
-                    break;
-                case 4:
-                    value = ".html";
-                    break;
-                case 5:
-                    value = ".HEIC";
-                    break;
-                case 6:
-                    value = ".png";
-                    break;
-                case 7:
-                    value = ".cs";
-                    break;
-                case 8:
-                    value = ".py";
-                    break;
-                case 9:
-                    value = ".pages";
-                    break;
-                case 10:
-                    value = ".abb";
-                    break;
-                case 11:
-                    value = ".apk";
-                    break;
-                case 12:
-                    value = ".moc";
-                    break;
-                case 13:
-                    value = ".mp4";
-                    break;
-                case 14:
-                    value = ".mp3";
-                    break;
-            }
-
-            return value;
+            return extension[rnd.Next(0, extension.Length - 1)];
         }
 
         public double RandomWeight()
         {
-            var rndValue = new Random();
-            var value = (rndValue.NextDouble() + rndValue.NextDouble()) / rndValue.NextDouble();
+            var rnd = new Random();
+            var value = (rnd.NextDouble() + rnd.NextDouble()) / rnd.NextDouble();
             if (value == 0)
             {
                 RandomWeight();
@@ -131,31 +33,9 @@ namespace CourseApp
 
         public string RandomWeightModificator()
         {
-            var value = string.Empty;
+            string[] weightModificator = { "B", "KB", "MB", "GB", "TB", "PB" };
             var rnd = new Random();
-            switch (rnd.Next(0, 5))
-            {
-                case 0:
-                    value = "B";
-                    break;
-                case 1:
-                    value = "KB";
-                    break;
-                case 2:
-                    value = "MB";
-                    break;
-                case 3:
-                    value = "GB";
-                    break;
-                case 4:
-                    value = "TB";
-                    break;
-                case 5:
-                    value = "PB";
-                    break;
-            }
-
-            return value;
+            return weightModificator[rnd.Next(0, weightModificator.Length - 1)];
         }
     }
 }
