@@ -13,7 +13,7 @@ namespace CourseApp
             _function = new Function();
         }
 
-        public void Calculation(double a, double xn, double xk, double dx)
+        public List<double> Calculation(double a, double xn, double xk, double dx)
         {
             var listA = new List<double>();
             for (var x = xn; x <= xk; x += dx)
@@ -21,10 +21,10 @@ namespace CourseApp
                 listA.Add(_function.CalculateFunction(a, x));
             }
 
-            ConsoleOutput(listA);
+            return listA;
         }
 
-        public void Calculation(double a, List<double> xs)
+        public List<double> Calculation(double a, List<double> xs)
         {
             var listB = new List<double>();
             foreach (var x in xs)
@@ -32,10 +32,10 @@ namespace CourseApp
                 listB.Add(_function.CalculateFunction(a, x));
             }
 
-            ConsoleOutput(listB);
+            return listB;
         }
 
-        private static void ConsoleOutput(List<double> ys)
+        public void ConsoleOutput(List<double> ys)
         {
             foreach (var y in ys)
             {
