@@ -34,13 +34,5 @@ namespace CourseApp
 
             return listB;
         }
-
-        public void ConsoleOutput(List<double> ys)
-        {
-            foreach (var y in ys)
-            {
-                Console.WriteLine(Colors.FgCyan($"y = {y}").BgBlack());
-            }
-        }
     }
 }
