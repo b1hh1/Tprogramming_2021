@@ -19,8 +19,8 @@
             var listB = new List<double>();
             var listTaskB = new List<double>() { 1.88, 2.26, 3.84, 4.55, -6.21 };
 
-            start.CalcTaskA(a, b, xs, xe, dx, listA);
-            start.CalcTaskB(a, b, listB, listTaskB);
+            start.CalculationTask(a, b, xs, xe, dx, listA);
+            start.CalculationTask(a, b, listB, listTaskB);
 
             Console.WriteLine(Colors.FgCyan("-----------Task A-----------").BgMagenta());
             OutputTask(listA);

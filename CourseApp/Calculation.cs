@@ -5,7 +5,7 @@ namespace CourseApp
 
     public class Calculation : MainFunction
     {
-        public List<double> CalcTaskA(double a, double b, double xs, double xe, double dx, List<double> listA)
+        public List<double> CalculationTask(double a, double b, double xs, double xe, double dx, List<double> listA)
         {
             for (double x = xs; x <= xe; x += dx)
             {
@@ -15,7 +15,7 @@ namespace CourseApp
             return listA;
         }
 
-        public List<double> CalcTaskB(double a, double b, List<double> listB, List<double> listTaskB)
+        public List<double> CalculationTask(double a, double b, List<double> listB, List<double> listTaskB)
         {
             foreach (var x in listTaskB)
             {
