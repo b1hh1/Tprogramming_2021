@@ -13,8 +13,8 @@ namespace CourseApp.Tests
         {
             var a = 0.8;
             var b = 0.4;
-            var execution = new Calc();
-            var actual = execution.CalcFunc(a, b, x);
+            var execution = new Calculation();
+            var actual = execution.CalculationFuncion(a, b, x);
             Assert.Equal(expected, actual, 3);
         }
     }
