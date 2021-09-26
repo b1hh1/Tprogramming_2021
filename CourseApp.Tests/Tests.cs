@@ -4,6 +4,13 @@ namespace CourseApp.Tests
 
     public class Tests
     {
+        private Function _mainFunc;
+
+        public Tests()
+        {
+            _mainFunc = new Function();
+        }
+
         [Theory]
         [InlineData(1.23, 1.617)]
         [InlineData(6.03, 2.996)]
@@ -13,8 +20,7 @@ namespace CourseApp.Tests
         {
             var a = 0.8;
             var b = 0.4;
-            var execution = new Calculation();
-            var actual = execution.CalculationFuncion(a, b, x);
+            var actual = _mainFunc.CalculateFunction(a, b, x);
             Assert.Equal(expected, actual, 3);
         }
     }
