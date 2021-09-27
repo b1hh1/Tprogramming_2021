@@ -1,4 +1,4 @@
-namespace CourseApp
+namespace CourseApp.Calculate
 {
     using System;
     using System.Collections.Generic;
@@ -6,82 +6,162 @@ namespace CourseApp
 
     public class CalculateTasks
     {
-        public CalculateTasks(double a, double b)
-        {
-            var xStart = 0.11;
-            var xEnd = 0.36;
-            var xDelta = 0.05;
-            var listTaskOne = new List<double>() { };
-            var listTaskTwo = new List<double>() { 0.08, 0.026, 0.35, 0.41, 0.51 };
-            TaskCalculate(a, b, xStart, xEnd, xDelta, listTaskOne, listTaskTwo);
-        }
+        private double _startValue;
+        private double _endValue;
+        private double _deltaValue;
+        private double _aValue;
+        private double _bValue;
 
         public CalculateTasks()
         {
-            var a = 3.0;
-            var b = 2.0;
-            var xStart = 0.11;
-            var xEnd = 0.36;
-            var xDelta = 0.05;
+            AValue = 2.0;
+            BValue = 3.0;
+            StartValue = 0.11;
+            EndValue = 0.36;
+            DeltaValue = 0.05;
             var listTaskOne = new List<double>() { };
             var listTaskTwo = new List<double>() { 0.08, 0.026, 0.35, 0.41, 0.51 };
-            TaskCalculate(a, b, xStart, xEnd, xDelta, listTaskOne, listTaskTwo);
+            StartCalculate(listTaskOne, listTaskTwo);
         }
 
-        public double Calculate(double a, double b, double item)
+        public CalculateTasks(double aValue, double bValue, double startValue, double endValue, double deltaValue)
         {
-            var sin = Asin(Pow(item, a));
-            var cos = Acos(Pow(item, b));
+            AValue = aValue;
+            BValue = bValue;
+            StartValue = startValue;
+            EndValue = endValue;
+            DeltaValue = deltaValue;
+            var listTaskOne = new List<double>() { };
+            var listTaskTwo = new List<double>() { 0.08, 0.026, 0.35, 0.41, 0.51 };
+            StartCalculate(listTaskOne, listTaskTwo);
+        }
+
+        public double StartValue
+        {
+            get
+            {
+                return _startValue;
+            }
+
+            set
+            {
+                CheckValue(value);
+                _startValue = value;
+            }
+        }
+
+        public double EndValue
+        {
+            get
+            {
+                return _endValue;
+            }
+
+            set
+            {
+                CheckValue(value);
+                _endValue = value;
+            }
+        }
+
+        public double DeltaValue
+        {
+            get
+            {
+                return _deltaValue;
+            }
+
+            set
+            {
+                CheckValue(value);
+                _deltaValue = value;
+            }
+        }
+
+        public double AValue
+        {
+            get
+            {
+                return _aValue;
+            }
+
+            set
+            {
+                CheckValue(value);
+                _aValue = value;
+            }
+        }
+
+        public double BValue
+        {
+            get
+            {
+                return _bValue;
+            }
+
+            set
+            {
+                CheckValue(value);
+                _bValue = value;
+            }
+        }
+
+        public string Output { get; set; }
+
+        public Tuple<double, double> CalculateValue(double x)
+        {
+            var sin = Asin(Pow(x, AValue));
+            var cos = Acos(Pow(x, BValue));
+            return new Tuple<double, double>(x, sin + cos);
+        }
+
+        public double CalculateValue(double a, double b, double x)
+        {
+            var sin = Asin(Pow(x, a));
+            var cos = Acos(Pow(x, b));
             return sin + cos;
         }
 
-        private void FillTaskOneList(double a, double b, double xStart, double xEnd, double xDelta, List<double> listTaskOne)
+        private void WriteValueInString(double x)
         {
-            for (double x = xStart; x <= xEnd; x += xDelta)
+            Tuple<double, double> value;
+            value = CalculateValue(x);
+            Output += $"x = {value.Item1:f2} y = {value.Item2:f2} | ";
+        }
+
+        private void TaskOneList(List<double> listTaskOne)
+        {
+            for (double x = StartValue; x <= EndValue; x += DeltaValue)
             {
                 listTaskOne.Add(x);
             }
-
-            var listSize = listTaskOne.Count;
-            for (int i = 0; i < listSize; i++)
-            {
-                listTaskOne.Add(Calculate(a, b, (double)listTaskOne[i]));
-            }
         }
 
-        private void FillTaskTwoList(double a, double b, List<double> listTaskTwo)
+        private void StartCalculate(List<double> listTaskOne, List<double> listTaskTwo)
         {
-            var listSize = listTaskTwo.Count;
-            for (int i = 0; i < listSize; i++)
+            TaskOneList(listTaskOne);
+            Output = "Task One: ";
+            foreach (double x in listTaskOne)
             {
-                listTaskTwo.Add(Calculate(a, b, (double)listTaskTwo[i]));
+                WriteValueInString(x);
             }
+
+            Console.WriteLine(Output);
+            Output = "Task Two: ";
+            foreach (double x in listTaskTwo)
+            {
+                WriteValueInString(x);
+            }
+
+            Console.WriteLine(Output);
         }
 
-        private void ConsoleOutput(double a, double b, List<double> listTaskOne, List<double> listTaskTwo)
+        private void CheckValue(double value)
         {
-            string stringOutput = string.Empty;
-            Console.WriteLine($"Variables: a = {a}; b = {b}");
-            for (int i = 0; i < (listTaskOne.Count / 2); i++)
+            if (value == double.NaN)
             {
-                stringOutput += $"{i + 1}) x = {listTaskOne[i]}  y = {listTaskOne[(listTaskOne.Count / 2) + i]:f2}  ";
+                throw new Exception("Invalid value. Value is out of range.");
             }
-
-            Console.WriteLine($"Task 1: {stringOutput}");
-            stringOutput = string.Empty;
-            for (int i = 0; i < (listTaskTwo.Count / 2); i++)
-            {
-                stringOutput += $"{i + 1}) x = {listTaskTwo[i]}  y = {listTaskTwo[(listTaskTwo.Count / 2) + i]:f2}  ";
-            }
-
-            Console.WriteLine($"Task 2: {stringOutput} \n");
-        }
-
-        private void TaskCalculate(double a, double b, double xStart, double xEnd, double xDelta, List<double> listTaskOne, List<double> listTaskTwo)
-        {
-            FillTaskOneList(a, b, xStart, xEnd, xDelta, listTaskOne);
-            FillTaskTwoList(a, b, listTaskTwo);
-            ConsoleOutput(a, b, listTaskOne, listTaskTwo);
         }
     }
 }

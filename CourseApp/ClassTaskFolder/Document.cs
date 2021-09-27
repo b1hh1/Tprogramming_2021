@@ -1,4 +1,4 @@
-namespace CourseApp
+namespace CourseApp.Class
 {
     using System;
 
@@ -13,8 +13,7 @@ namespace CourseApp
 
         public Document()
         {
-            var generator = new RandomValueGenerator();
-            Name = generator.RandomName();
+            InitName();
         }
 
         public string Name
@@ -36,5 +35,34 @@ namespace CourseApp
         }
 
         public abstract string Display();
+
+        private void InitName()
+        {
+            Console.Clear();
+            Console.WriteLine("Generate name? (1 - yes / 2 - no)");
+            switch (Console.ReadLine())
+            {
+                case "1":
+                {
+                    var generator = new RandomValueGenerator();
+                    Name = generator.RandomName();
+                    break;
+                }
+
+                case "2":
+                {
+                    Console.Clear();
+                    Console.Write("Enter name: ");
+                    Name = Console.ReadLine();
+                    break;
+                }
+
+                default:
+                {
+                    InitName();
+                    break;
+                }
+            }
+        }
     }
 }

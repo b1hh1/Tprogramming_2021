@@ -1,4 +1,4 @@
-namespace CourseApp
+namespace CourseApp.Class
 {
     using System;
     using static System.Math;
@@ -21,9 +21,9 @@ namespace CourseApp
         : base()
         {
             var generator = new RandomValueGenerator();
-            Extension = generator.RandomExtension();
-            Weight = generator.RandomWeight();
-            WeightModificator = generator.RandomWeightModificator();
+            InitExtension(generator);
+            InitWeight(generator);
+            InitWeightModificator(generator);
         }
 
         public string Extension
@@ -83,6 +83,90 @@ namespace CourseApp
         public override string Display()
         {
             return $"{Name}{Extension} {Weight}{WeightModificator}";
+        }
+
+        private void InitExtension(RandomValueGenerator generator)
+        {
+            Console.Clear();
+            Console.WriteLine("Generate extension? (1 - yes / 2 - no)");
+            switch (Console.ReadLine())
+            {
+                case "1":
+                {
+                    Extension = generator.RandomExtension();
+                    break;
+                }
+
+                case "2":
+                {
+                    Console.Clear();
+                    Console.Write("Enter extension: ");
+                    Extension = Console.ReadLine();
+                    break;
+                }
+
+                default:
+                {
+                    InitExtension(generator);
+                    break;
+                }
+            }
+        }
+
+        private void InitWeight(RandomValueGenerator generator)
+        {
+            Console.Clear();
+            Console.WriteLine("Generate weight? (1 - yes / 2 - no)");
+            switch (Console.ReadLine())
+            {
+                case "1":
+                {
+                    Weight = generator.RandomWeight();
+                    break;
+                }
+
+                case "2":
+                {
+                    Console.Clear();
+                    Console.Write("Enter weight: ");
+                    Weight = Convert.ToDouble(Console.ReadLine());
+                    break;
+                }
+
+                default:
+                {
+                    InitWeight(generator);
+                    break;
+                }
+            }
+        }
+
+        private void InitWeightModificator(RandomValueGenerator generator)
+        {
+            Console.Clear();
+            Console.WriteLine("Generate weightModificator? (1 - yes / 2 - no)");
+            switch (Console.ReadLine())
+            {
+                case "1":
+                {
+                    WeightModificator = generator.RandomWeightModificator();
+                    break;
+                }
+
+                case "2":
+                {
+                    Console.Clear();
+                    Console.Write("Enter weightModificator: ");
+                    WeightModificator = Console.ReadLine();
+                    break;
+                }
+
+                default:
+                {
+                    InitWeightModificator(generator);
+                    break;
+                }
+            }
         }
     }
 }
