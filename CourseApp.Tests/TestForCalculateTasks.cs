@@ -20,7 +20,7 @@ namespace CourseApp.Tests
             var b = 2.0;
             var calculateTask = new CalculateTasks();
             var actual = calculateTask.CalculateValue(a, b, x);
-            Assert.Equal(expected, Round(actual, 3));
+            Assert.Equal(expected, actual, 3);
         }
     }
 }

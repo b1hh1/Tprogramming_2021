@@ -6,12 +6,7 @@ namespace CourseApp
 
     public class ConsoleInputOutput
     {
-        public ConsoleInputOutput()
-        {
-            StartProgram();
-        }
-
-        public static int IntValue()
+        public int IntValue()
         {
             bool isNumber = false;
             var input = string.Empty;
@@ -28,7 +23,7 @@ namespace CourseApp
             return Convert.ToInt32(input);
         }
 
-        public static double DoubleValue()
+        public double DoubleValue()
         {
             bool isNumber = false;
             var input = string.Empty;
@@ -45,7 +40,7 @@ namespace CourseApp
             return Convert.ToDouble(input);
         }
 
-        private static void StartProgram()
+        public void StartProgram()
         {
             Console.Clear();
             Console.WriteLine("Hello!");
@@ -68,7 +63,7 @@ namespace CourseApp
             }
         }
 
-        private static void Calculate()
+        private void Calculate()
         {
             Console.Clear();
             Console.WriteLine("Calculate tasks");
@@ -102,7 +97,7 @@ namespace CourseApp
             }
         }
 
-        private static void Class()
+        private void Class()
         {
             Console.Clear();
             Console.WriteLine("Class tasks");

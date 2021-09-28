@@ -108,11 +108,11 @@ namespace CourseApp.Calculate
 
         public string Output { get; set; }
 
-        public Tuple<double, double> CalculateValue(double x)
+        public (double, double) CalculateValue(double x)
         {
             var sin = Asin(Pow(x, AValue));
             var cos = Acos(Pow(x, BValue));
-            return new Tuple<double, double>(x, sin + cos);
+            return (x, sin + cos);
         }
 
         public double CalculateValue(double a, double b, double x)
@@ -124,8 +124,7 @@ namespace CourseApp.Calculate
 
         private void WriteValueInString(double x)
         {
-            Tuple<double, double> value;
-            value = CalculateValue(x);
+            var value = CalculateValue(x);
             Output += $"x = {value.Item1:f2} y = {value.Item2:f2} | ";
         }
 

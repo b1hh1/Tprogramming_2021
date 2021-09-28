@@ -5,38 +5,40 @@ namespace CourseApp.Class
 
     public class DocumentValue
     {
-        public static int IntValue()
-        {
-            bool isNumber = false;
-            var input = string.Empty;
-            while (!isNumber)
-            {
-                input = Console.ReadLine();
-                isNumber = int.TryParse(input, out int inputValue);
-                if (!isNumber)
-                {
-                    Console.WriteLine("Please enter correct value");
-                }
-            }
-
-            return Convert.ToInt32(input);
-        }
-
-        public static double DoubleValue()
+        public static int InputIntValue()
         {
             var isNumber = false;
             var input = string.Empty;
+            int inputValue = 0;
             while (!isNumber)
             {
                 input = Console.ReadLine();
-                isNumber = double.TryParse(input, out double inputValue);
+                isNumber = int.TryParse(input, out inputValue);
                 if (!isNumber)
                 {
-                    Console.WriteLine("Please enter correct value");
+                    Console.WriteLine($"Value is incorrect. Please enter correct value!");
                 }
             }
 
-            return Convert.ToDouble(input);
+            return inputValue;
+        }
+
+        public static double InputDoubleValue()
+        {
+            var isNumber = false;
+            var input = string.Empty;
+            double inputValue = 0;
+            while (!isNumber)
+            {
+                input = Console.ReadLine();
+                isNumber = double.TryParse(input, out inputValue);
+                if (!isNumber)
+                {
+                    Console.WriteLine($"Value is incorrect. Please enter correct value!");
+                }
+            }
+
+            return inputValue;
         }
 
         public string Name()
@@ -60,7 +62,7 @@ namespace CourseApp.Class
         {
             Console.WriteLine(" ");
             Console.Write("Enter weight ( weight > 0 ): ");
-            return DoubleValue();
+            return InputDoubleValue();
         }
 
         public string WeightModificator()
@@ -86,7 +88,7 @@ namespace CourseApp.Class
             var isCorrectNumber = false;
             while (!isCorrectNumber)
             {
-                input = IntValue();
+                input = InputIntValue();
                 if (input > str.Length || input <= 0)
                 {
                     Console.WriteLine("Value is out of range");
