@@ -63,7 +63,7 @@
 
                 case 2:
                 {
-                    WriteLine("Coming soon!")
+                    Class();
                     break;
                 }
             }
@@ -98,6 +98,30 @@
                     var delta = DoubleValue();
                     Console.Clear();
                     var task = new CalculateTasks(a, b, start, end, delta);
+                    break;
+                }
+            }
+        }
+
+        private static void Class()
+        {
+            Console.Clear();
+            Console.WriteLine("Class tasks");
+            Console.WriteLine("File with default values - 1 | File with your values - 2");
+            switch (IntValue())
+            {
+                case 1:
+                {
+                    Console.Clear();
+                    var task = new ClassTask();
+                    break;
+                }
+
+                case 2:
+                {
+                    Console.Clear();
+                    var value = new DocumentValue();
+                    var task = new ClassTask(value.Name(), value.Extension(), value.Weight(), value.WeightModificator());
                     break;
                 }
             }

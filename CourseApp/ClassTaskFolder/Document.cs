@@ -13,7 +13,7 @@ namespace CourseApp.Class
 
         public Document()
         {
-            InitName();
+            Name = "Program";
         }
 
         public string Name
@@ -35,34 +35,5 @@ namespace CourseApp.Class
         }
 
         public abstract string Display();
-
-        private void InitName()
-        {
-            Console.Clear();
-            Console.WriteLine("Generate name? (1 - yes / 2 - no)");
-            switch (Console.ReadLine())
-            {
-                case "1":
-                {
-                    var generator = new RandomValueGenerator();
-                    Name = generator.RandomName();
-                    break;
-                }
-
-                case "2":
-                {
-                    Console.Clear();
-                    Console.Write("Enter name: ");
-                    Name = Console.ReadLine();
-                    break;
-                }
-
-                default:
-                {
-                    InitName();
-                    break;
-                }
-            }
-        }
     }
 }
