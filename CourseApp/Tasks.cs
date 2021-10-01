@@ -29,11 +29,9 @@
         public double[] TaskB(double[] numbers)
         {
             double[] results = new double[numbers.Length];
-            int g = 0;
-            foreach (double i in numbers)
+            for (int i = 0; i < numbers.Length; i++)
             {
-                results[g] = Function(i);
-                g++;
+                results[i] = Function(numbers[i]);
             }
 
             return results;

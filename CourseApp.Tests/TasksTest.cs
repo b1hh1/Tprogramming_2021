@@ -70,7 +70,7 @@ namespace CourseApp.Tests
         public void EquationWithErr()
         {
             // arrange
-            var equation = new Equation();
+            var equation = new Tasks();
             var a = -0.11;
             var exp = double.NaN;
 
@@ -85,7 +85,7 @@ namespace CourseApp.Tests
         public void EquationWithoutErr()
         {
             // arrange
-            var equation = new Equation();
+            var equation = new Tasks();
             var a = 0.11;
             var exp = -2.17041;
 
