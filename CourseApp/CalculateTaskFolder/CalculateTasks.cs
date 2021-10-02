@@ -14,14 +14,7 @@ namespace CourseApp.Calculate
 
         public CalculateTasks()
         {
-            AValue = 2.0;
-            BValue = 3.0;
-            StartValue = 0.11;
-            EndValue = 0.36;
-            DeltaValue = 0.05;
-            var listTaskTwo = new List<double>() { 0.08, 0.026, 0.35, 0.41, 0.51 };
-            StartCalculate(ListValue());
-            StartCalculate(listTaskTwo);
+            var calculateTask = new CalculateTasks(2.0, 3.0, 0.11, 0.36, 0.05);
         }
 
         public CalculateTasks(double aValue, double bValue, double startValue, double endValue, double deltaValue)
@@ -108,7 +101,21 @@ namespace CourseApp.Calculate
 
         public string Output { get; set; }
 
-        public List<double> ListValue()
+        public double CalculateValue(double a, double b, double x)
+        {
+            var sin = Asin(Pow(x, a));
+            var cos = Acos(Pow(x, b));
+            return sin + cos;
+        }
+
+        private (double, double) CalculateValue(double x)
+        {
+            var sin = Asin(Pow(x, AValue));
+            var cos = Acos(Pow(x, BValue));
+            return (x, sin + cos);
+        }
+
+        private List<double> ListValue()
         {
             var listValue = new List<double>();
             for (double x = StartValue; x <= EndValue; x += DeltaValue)
@@ -117,20 +124,6 @@ namespace CourseApp.Calculate
             }
 
             return listValue;
-        }
-
-        public (double, double) CalculateValue(double x)
-        {
-            var sin = Asin(Pow(x, AValue));
-            var cos = Acos(Pow(x, BValue));
-            return (x, sin + cos);
-        }
-
-        public double CalculateValue(double a, double b, double x)
-        {
-            var sin = Asin(Pow(x, a));
-            var cos = Acos(Pow(x, b));
-            return sin + cos;
         }
 
         private void StartCalculate(List<double> listValues)

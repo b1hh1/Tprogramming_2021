@@ -4,7 +4,7 @@ namespace CourseApp.Tests
     using Xunit;
     using static System.Math;
 
-    public class TestForCalculateTasks
+    public class TestsForTasks
     {
         [Theory]
         [InlineData(3, 2, 0.11, 1.56)]

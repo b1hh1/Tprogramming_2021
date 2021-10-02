@@ -8,10 +8,7 @@ namespace CourseApp
         public void StartProgram()
         {
             Console.Clear();
-            Console.WriteLine("Hello!");
-            Console.WriteLine("This program can calculate tasks and create files with default or your values");
-            Console.WriteLine("Calculate with default values - 1 | Calculate with your values - 2");
-            Console.WriteLine("What you want?");
+            Console.WriteLine("Hello!\nThis program can calculate tasks.\nCalculate with default values - 1 | Calculate with your values - 2\nWhat you want?");
             Calculate();
         }
 
