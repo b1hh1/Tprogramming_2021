@@ -4,26 +4,26 @@ namespace CourseApp.Tests
 
     public class TasksTest
     {
-        [Fact]
-        public void TaskA()
+        [Theory]
+        [InlineData(-2.17041, -1.77066, -1.47417, -1.23865, -1.04481, -0.88217)]
+        public void TaskA(double a, double b, double c, double d, double e, double f)
         {
             // arrange
             var equation = new Tasks();
             double xn = 0.11;
             double xk = 0.36;
             double dx = 0.05;
-            int g = 0;
-            double[] exp = { -2.17041, -1.77066, -1.47417, -1.23865, -1.04481, -0.88217 };
 
             // act
             double[] res = equation.TaskA(xn, xk, dx);
 
             // assert
-            foreach (double i in res)
-            {
-                Assert.Equal(exp[g], i, 5);
-                g++;
-            }
+            Assert.Equal(a, res[0], 5);
+            Assert.Equal(b, res[1], 5);
+            Assert.Equal(c, res[2], 5);
+            Assert.Equal(d, res[3], 5);
+            Assert.Equal(e, res[4], 5);
+            Assert.Equal(f, res[5], 5);
         }
 
         [Fact]
@@ -66,28 +66,13 @@ namespace CourseApp.Tests
             }
         }
 
-        [Fact]
-        public void EquationWithErr()
+        [Theory]
+        [InlineData(-0.11, double.NaN)]
+        [InlineData(0.11, -2.17041)]
+        public void Equation(double a, double exp)
         {
             // arrange
             var equation = new Tasks();
-            var a = -0.11;
-            var exp = double.NaN;
-
-            // act
-            var res = equation.Function(a);
-
-            // assert
-            Assert.Equal(exp, res, 5);
-        }
-
-        [Fact]
-        public void EquationWithoutErr()
-        {
-            // arrange
-            var equation = new Tasks();
-            var a = 0.11;
-            var exp = -2.17041;
 
             // act
             var res = equation.Function(a);

@@ -362,9 +362,8 @@ namespace CourseApp.Tests
         public void FullConstructorAssaultRifle()
         {
             // arrange
-            var aK47 = new AssaultRifle("AK47", 5.2F, 1760, "Max", true);
-            aK47.Caliber = 5.2F;
-            var exp = 5.2F;
+            var aK47 = new AssaultRifle("AK47", -2, 1760, "Max", true);
+            var exp = 0;
 
             // act
             var res = aK47.Caliber;
