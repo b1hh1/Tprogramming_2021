@@ -1,6 +1,5 @@
 namespace CourseApp.Tests
 {
-    using CourseApp.Calculate;
     using Xunit;
     using static System.Math;
 
@@ -16,8 +15,8 @@ namespace CourseApp.Tests
         [InlineData(3, 2, 0.51, 1.441)]
         public void TestCalculate(double a, double b, double x, double expected)
         {
-            var calculateTask = new CalculateTasks();
-            var actual = calculateTask.CalculateValue(a, b, x);
+            var calculateTask = new CalculateTasks(a, b);
+            var actual = calculateTask.CalculateValue(x);
             Assert.Equal(expected, actual, 3);
         }
     }
