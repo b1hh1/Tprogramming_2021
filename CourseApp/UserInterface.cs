@@ -129,7 +129,7 @@ What you want? Enter integer values.");
             switch (input.InputInt(1, 2))
             {
                 case 1:
-                    CalculateCustomValues(listValues);
+                    CustomCalculations(listValues);
                     break;
 
                 case 2:

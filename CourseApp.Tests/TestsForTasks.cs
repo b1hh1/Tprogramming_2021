@@ -16,8 +16,44 @@ namespace CourseApp.Tests
         public void TestCalculate(double a, double b, double x, double expected)
         {
             var calculateTask = new CalculateTasks(a, b);
-            var actual = calculateTask.CalculateValue(x);
+            var actual = calculateTask.CalculateValue(x).Item2;
             Assert.Equal(expected, actual, 3);
+        }
+
+        [Theory]
+        [InlineData(0, -1, 2, true)]
+        [InlineData(0, 1, 2, false)]
+        [InlineData(1, 0, 2, true)]
+        [InlineData(1, 1, 2, true)]
+        [InlineData(-1, 0, 1, false)]
+        [InlineData(-1, -1, -1, true)]
+        [InlineData(2, 2, 4, true)]
+        [InlineData(-2, -1, 2, false)]
+        [InlineData(3, 2, 3, true)]
+        [InlineData(-3, -5, 0, true)]
+        public void TestInputInt(int input, int min, int max, bool expected)
+        {
+            var check = new CheckValues();
+            var actual = check.IsValidInt(input, min, max);
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData(0.1, -1, 2, true)]
+        [InlineData(0.5, 1, 2, false)]
+        [InlineData(1, 0, 2, true)]
+        [InlineData(1.2, 1, 2, true)]
+        [InlineData(-1.4, 0, 1, false)]
+        [InlineData(-1.7, -1.7, -1, true)]
+        [InlineData(2.9, 2, 4, true)]
+        [InlineData(-2.2, -1, 2, false)]
+        [InlineData(3.31, 2, 3.31, true)]
+        [InlineData(-3.8, -4.7, 0.2, true)]
+        public void TestInputDouble(double input, double min, double max, bool expected)
+        {
+            var check = new CheckValues();
+            var actual = check.IsValidDouble(input, min, max);
+            Assert.Equal(expected, actual);
         }
     }
 }
