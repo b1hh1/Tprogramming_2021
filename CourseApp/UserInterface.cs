@@ -89,9 +89,9 @@ What you want? Enter integer values.");
             Console.Clear();
             var input = new InputValues();
             var task = new CalculateTasks(2.0, 3.0, 0.11, 0.36, 0.05);
-            var tpl = (task.StartCalculate(task.ListValue()), task.StartCalculate(listValues));
             Console.WriteLine($"Calculated with default values:");
-            Output(tpl);
+            Output(task.StartCalculate(task.ListValue()));
+            Output(task.StartCalculate(listValues));
         }
 
         private void CalculateCustomValues(List<double> listValues)
@@ -111,9 +111,9 @@ What you want? Enter integer values.");
             var delta = input.InputDouble(-Pow(10, 200), Pow(10, 200));
             Console.Clear();
             var task = new CalculateTasks(a, b, start, end, delta);
-            var tpl = (task.StartCalculate(task.ListValue()), task.StartCalculate(listValues));
             Console.WriteLine($"Calculated with custom values:");
-            Output(tpl);
+            Output(task.StartCalculate(task.ListValue()));
+            Output(task.StartCalculate(listValues));
         }
 
         private void CustomCalculations(List<double> listValues)
@@ -142,18 +142,12 @@ What you want? Enter integer values.");
             }
         }
 
-        private void Output((List<(double, double)>, List<(double, double)>) tpl)
+        private void Output(List<(double, double)> lst)
         {
-            Console.WriteLine("Task A:");
-            for (int i = 0; i < tpl.Item1.Count; i++)
+            Console.WriteLine("Task:");
+            for (int i = 0; i < lst.Count; i++)
             {
-                Console.WriteLine($"  x = {tpl.Item1[i].Item1:f2} y = {tpl.Item1[i].Item2:f2}");
-            }
-
-            Console.WriteLine("Task B:");
-            for (int i = 0; i < tpl.Item2.Count; i++)
-            {
-                Console.WriteLine($"  x = {tpl.Item1[i].Item1:f2} y = {tpl.Item1[i].Item2:f2}");
+                Console.WriteLine($"  x = {lst[i].Item1:f2} y = {lst[i].Item2:f2}");
             }
         }
     }
