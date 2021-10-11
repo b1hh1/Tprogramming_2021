@@ -15,7 +15,11 @@ namespace CourseApp
         {
             var input = new InputValues();
             var listValues = new List<double>() { 0.08, 0.026, 0.35, 0.41, 0.51 };
-            Console.WriteLine("In this program you can:\r\n1 - Calculate with default values\r\n2 - Calculate with custom values\r\n3 - Exit program\r\nWhat you want? Enter integer values.");
+            Console.WriteLine(@"In this program you can:
+1 - Calculate with default values
+2 - Calculate with custom values
+3 - Exit program
+What you want? Enter integer values.");
             switch (input.InputInt(1, 3))
             {
                 case 1:
@@ -37,7 +41,10 @@ namespace CourseApp
             var input = new InputValues();
             Console.Clear();
             CalculateDefaultValues(listValues);
-            Console.WriteLine("\r\nAvailable actions:\r\n1 - Back to start page\r\n2 - Exit program\r\nWhat you want? Enter integer values.");
+            Console.WriteLine(@"Available actions:
+1 - Back to start page
+2 - Exit program
+What you want? Enter integer values.");
             switch (input.InputInt(1, 2))
             {
                 case 1:
@@ -55,7 +62,11 @@ namespace CourseApp
         {
             var input = new InputValues();
             Console.Clear();
-            Console.WriteLine("Available actions:\r\n1 - Enter custom values\r\n2 - Back to start page\r\n3 - Exit program\r\nWhat you want? Enter integer values.");
+            Console.WriteLine(@"Available actions:
+1 - Enter custom values
+2 - Back to start page
+3 - Exit program
+What you want? Enter integer values.");
             switch (input.InputInt(1, 4))
             {
                 case 1:
@@ -110,7 +121,11 @@ namespace CourseApp
             var input = new InputValues();
             Console.Clear();
             CalculateCustomValues(listValues);
-            Console.WriteLine("Available actions:\r\n1 - Calculate with another custom values\r\n2 - Back to previous page\r\n3 - Exit program\r\nWhat you want? Enter integer values.");
+            Console.WriteLine(@"Available actions:
+1 - Calculate with another custom values
+2 - Back to previous page
+3 - Exit program
+What you want? Enter integer values.");
             switch (input.InputInt(1, 2))
             {
                 case 1:
