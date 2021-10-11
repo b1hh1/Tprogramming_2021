@@ -8,7 +8,7 @@ namespace CourseApp
         {
             var item = string.Empty;
             var isCorrect = false;
-            var check = new CheckValueForCorrect();
+            var check = new CheckValues();
             while (!isCorrect)
             {
                 item = Console.ReadLine();
@@ -27,7 +27,7 @@ namespace CourseApp
         {
             int intInput = 0;
             var isCorrect = false;
-            var check = new CheckValueForCorrect();
+            var check = new CheckValues();
             while (!isCorrect)
             {
                 var item = Console.ReadLine();
@@ -53,7 +53,7 @@ namespace CourseApp
         {
             double doubleInput = 0;
             var isCorrect = false;
-            var check = new CheckValueForCorrect();
+            var check = new CheckValues();
             while (!isCorrect)
             {
                 var item = Console.ReadLine();
