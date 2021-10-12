@@ -2,11 +2,7 @@
 {
     public abstract class RifleWeapon : IRifleWeapon
     {
-        private string variety;
-        private string name;
         private double calibre;
-        private int rateoffire;
-        private string typeofshooting;
 
         public string Variety { get; set; }
 
@@ -31,13 +27,5 @@
                 }
             }
         }
-
-        public string Name1 { get => name; set => name = value; }
-
-        public string Variety1 { get => variety; set => variety = value; }
-
-        public int Rateoffire { get => rateoffire; set => rateoffire = value; }
-
-        public string Typeofshooting { get => typeofshooting; set => typeofshooting = value; }
     }
 }
