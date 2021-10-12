@@ -1,111 +1,55 @@
-namespace CourseApp.Tests
+﻿namespace CourseApp.Tests
 {
     using Xunit;
 
     public class CalculatorTest
     {
-        [Fact]
-        public void SumInt()
+        [Theory]
+        [InlineData(10, 0, 10)]
+        [InlineData(0.0f, 32.812398f, -32.812398f)]
+        [InlineData(67.123, 3.002, 64.121)]
+        public void SomethingSub(double val1, double val2, double exp)
         {
             var calc = new Calculator();
-            int a = 10;
-            int b = 3;
-            var exp = 13;
 
-            var res = calc.Sum(a, b);
-
-            Assert.Equal(exp, res);
-        }
-
-        [Fact]
-        public void SumFloat()
-        {
-            var calc = new Calculator();
-            float a = 43.123675f;
-            float b = 32.812398f;
-            var exp = 75.936073f;
-
-            var res = calc.Sum(a, b);
-
-            Assert.Equal(exp, res);
-        }
-
-        [Fact]
-        public void SumDouble()
-        {
-            var calc = new Calculator();
-            double a = 67.123;
-            double b = 3.002;
-            var exp = 70.125;
-
-            var res = calc.Sum(a, b);
-
-            Assert.Equal(exp, res);
-        }
-
-        [Fact]
-        public void SumDecimal()
-        {
-            var calc = new Calculator();
-            decimal a = 2.5231m;
-            decimal b = 34.42342m;
-            var exp = 36.94652m;
-
-            var res = calc.Sum(a, b);
-
-            Assert.Equal(exp, res);
-        }
-
-        [Fact]
-        public void SubInt()
-        {
-            var calc = new Calculator();
-            int a = 10;
-            int b = 0;
-            var exp = 10;
-
-            var res = calc.Sub(a, b);
-
-            Assert.Equal(exp, res);
-        }
-
-        [Fact]
-        public void SubFloat()
-        {
-            var calc = new Calculator();
-            float a = 0.0f;
-            float b = 32.812398f;
-            var exp = -32.812398f;
-
-            var res = calc.Sub(a, b);
-
-            Assert.Equal(exp, res);
-        }
-
-        [Fact]
-        public void SubDouble()
-        {
-            var calc = new Calculator();
-            double a = 67.123;
-            double b = 3.002;
-            var exp = 64.121;
-
-            var res = calc.Sub(a, b);
+            var res = calc.Sub(val1, val2);
 
             Assert.Equal(exp, res, 3);
         }
 
-        [Fact]
-        public void SubDecimal()
+        [Theory]
+        [InlineData(2.5231, 34.42342, -31.90032)]
+        public void SomethingSubDec(decimal val1, decimal val2, decimal exp)
         {
             var calc = new Calculator();
-            decimal a = 2.5231m;
-            decimal b = 34.42342m;
-            var exp = -31.90032m;
 
-            var res = calc.Sub(a, b);
+            var res = calc.Sub(val1, val2);
 
-            Assert.Equal(exp, res);
+            Assert.Equal(exp, res, 3);
+        }
+
+        [Theory]
+        [InlineData(10, 3, 13)]
+        [InlineData(43.123675f, 32.812398f, 75.936073f)]
+        [InlineData(67.123, 3.002, 70.125)]
+        public void SomethingSum(double val1, double val2, double exp)
+        {
+            var calc = new Calculator();
+
+            var res = calc.Sum(val1, val2);
+
+            Assert.Equal(exp, res, 3);
+        }
+
+        [Theory]
+        [InlineData(2.5231, 34.42342, 36.94652)]
+        public void SomethingSumDec(decimal val1, decimal val2, decimal exp)
+        {
+            var calc = new Calculator();
+
+            var res = calc.Sum(val1, val2);
+
+            Assert.Equal(exp, res, 3);
         }
     }
 }
