@@ -1,63 +1,36 @@
 ﻿namespace CourseApp.Tests
 {
+    using System.Collections.Generic;
     using Xunit;
 
     public class FunctionTest
     {
-        [Fact]
-        public void FirstTest()
+        [Theory]
+        [InlineData(4.1, 2.7, 2.34, 1956.21338)]
+        [InlineData(4.1, 2.7, 1, 0)]
+        [InlineData(0, 2.7, 1.9, 11239.29616)]
+        [InlineData(4.1, 0, 1.9, -53004.79111)]
+
+        public void Test(double a, double b, double x, double exp)
         {
             var calc = new FunctionCalculator();
-            double a = 4.1;
-            double b = 2.7;
-            double x = 2.34;
-            var exp = 1956.21338;
 
             var res = calc.Function(a, b, x);
 
             Assert.Equal(exp, res, 5);
         }
 
-        [Fact]
-        public void XEqualOneTest()
+        [Theory]
+        [InlineData(1.5, 1.5, 0.4, 4.1, 2.7)]
+        public void TestA(double xStart, double xEnd, double dX, double a, double b)
         {
             var calc = new FunctionCalculator();
-            double a = 4.1;
-            double b = 2.7;
-            double x = 1;
-            var exp = 0;
 
-            var res = calc.Function(a, b, x);
+            var res = calc.TaskA(xStart, xEnd, dX, a, b);
 
-            Assert.Equal(exp, res);
-        }
+            List<double> exp = new List<double>();
 
-        [Fact]
-        public void AEqual0Test()
-        {
-            var calc = new FunctionCalculator();
-            double a = 0;
-            double b = 2.7;
-            double x = 1.9;
-            var exp = 11239.29616;
-
-            var res = calc.Function(a, b, x);
-
-            Assert.Equal(exp, res, 5);
-        }
-
-        [Fact]
-        public void BEqual0Test()
-        {
-            var calc = new FunctionCalculator();
-            double a = 4.1;
-            double b = 0;
-            double x = 1.9;
-            var exp = -53004.79111;
-
-            var res = calc.Function(a, b, x);
-
-            Assert.Equal(exp, res, 4);
+            Assert.Equal(res, exp);
         }
     }
 }

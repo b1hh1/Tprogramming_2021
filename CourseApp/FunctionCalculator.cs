@@ -1,6 +1,7 @@
 ﻿namespace CourseApp
 {
     using System;
+    using System.Collections.Generic;
 
     public class FunctionCalculator
     {
@@ -13,20 +14,26 @@
             return y;
         }
 
-        public void TaskA(double xStart, double xEnd, double dX, double a, double b)
+        public List<double> TaskA(double xStart, double xEnd, double dX, double a, double b)
         {
+            List<double> res = new List<double>();
             for (double x = xStart; x < xEnd; x += dX)
             {
-                Function(a, b, x);
+                res.Add(Function(a, b, x));
             }
+
+            return res;
         }
 
-        public void TaskB(double[] nums, double a, double b)
+        public List<double> TaskB(double[] nums, double a, double b)
         {
+            List<double> res = new List<double>();
             foreach (double num in nums)
             {
-                Function(a, b, num);
+                res.Add(Function(a, b, num));
             }
+
+            return res;
         }
     }
 }
