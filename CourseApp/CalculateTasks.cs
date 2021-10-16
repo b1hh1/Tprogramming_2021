@@ -37,7 +37,7 @@ namespace CourseApp
             foreach (double x in listValue)
             {
                 var value = CalculateValue(x);
-                list.Add((value.Item1, value.Item2));
+                list.Add(value);
             }
 
             return list;
