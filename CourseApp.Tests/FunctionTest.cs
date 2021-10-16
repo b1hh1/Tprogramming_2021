@@ -32,5 +32,21 @@
 
             Assert.Equal(res, exp);
         }
+
+        [Fact]
+        public void TestB()
+        {
+            double[] nums = new double[] { };
+            double a = 4.1;
+            double b = 2.7;
+
+            var calc = new FunctionCalculator();
+
+            var res = calc.TaskB(nums, a, b);
+
+            List<double> exp = new List<double>();
+
+            Assert.Equal(res, exp);
+        }
     }
 }
