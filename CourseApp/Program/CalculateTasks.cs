@@ -1,6 +1,5 @@
-namespace CourseApp
+namespace CourseApp.Program
 {
-    using System;
     using System.Collections.Generic;
     using static System.Math;
 
@@ -30,6 +29,13 @@ namespace CourseApp
             BValue = bValue;
         }
 
+        public CalculateTasks(double startValue, double endValue, double deltaValue)
+        {
+            StartValue = startValue;
+            EndValue = endValue;
+            DeltaValue = deltaValue;
+        }
+
         public double StartValue { get; set; }
 
         public double EndValue { get; set; }
@@ -43,7 +49,7 @@ namespace CourseApp
         public List<(double, double)> StartCalculate(List<double> listValue)
         {
             var list = new List<(double, double)>();
-            foreach (double x in listValue)
+            foreach (var x in listValue)
             {
                 var value = CalculateValue(x);
                 list.Add(value);
@@ -55,7 +61,7 @@ namespace CourseApp
         public List<double> ListValue()
         {
             var listValue = new List<double>();
-            for (double x = StartValue; x <= EndValue; x += DeltaValue)
+            for (var x = StartValue; x <= EndValue; x += DeltaValue)
             {
                 listValue.Add(x);
             }

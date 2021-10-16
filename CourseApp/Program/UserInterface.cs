@@ -1,8 +1,8 @@
-namespace CourseApp
+namespace CourseApp.Program
 {
     using System;
     using System.Collections.Generic;
-    using static System.Math;
+    using CourseApp.Program.Input;
 
     public class UserInterface
     {
@@ -70,7 +70,7 @@ Available actions:
 2 - Back to start page
 3 - Exit program
 What you want? Enter integer values.");
-            switch (input.InputInt(1, 4))
+            switch (input.InputInt(1, 3))
             {
                 case 1:
                     CustomCalculations(listValues);
@@ -109,8 +109,8 @@ What you want? Enter integer values.");
 
         private void CustomCalculations(List<double> listValues)
         {
-            var input = new InputValues();
             Console.Clear();
+            var input = new InputValues();
             CalculateCustomValues(listValues);
             Console.WriteLine(@"
 Available actions:
@@ -118,7 +118,7 @@ Available actions:
 2 - Back to previous page
 3 - Exit program
 What you want? Enter integer values.");
-            switch (input.InputInt(1, 2))
+            switch (input.InputInt(1, 3))
             {
                 case 1:
                     CustomCalculations(listValues);

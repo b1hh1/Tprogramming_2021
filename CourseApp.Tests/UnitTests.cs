@@ -1,5 +1,7 @@
 namespace CourseApp.Tests
 {
+    using CourseApp.Program;
+    using CourseApp.Program.Input;
     using Xunit;
 
     public class UnitTests
@@ -14,9 +16,22 @@ namespace CourseApp.Tests
         [InlineData(3, 2, 0.51, 1.441)]
         public void TestCalculate(double a, double b, double x, double expected)
         {
-            var calculateTask = new CalculateTasks(a, b);
-            var actual = calculateTask.CalculateValue(x).Item2;
+            var task = new CalculateTasks(a, b);
+            var actual = task.CalculateValue(x).Item2;
             Assert.Equal(expected, actual, 3);
+        }
+
+        [Theory]
+        [InlineData(0.1, 0.5, 0.1, 5)]
+        [InlineData(0, 5, 0.5, 11)]
+        [InlineData(0.25, 0.5, 0.05, 6)]
+        [InlineData(0.1, 0.1, 0, 1)]
+        [InlineData(1.2, 2.4, 1.2, 2)]
+        public void TestListCount(double start, double end, double delta, int expected)
+        {
+            var task = new CalculateTasks(start, end, delta);
+            var actual = task.ListValue().Count;
+            Assert.Equal(expected, actual);
         }
 
         [Theory]
