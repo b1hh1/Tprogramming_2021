@@ -15,6 +15,15 @@ namespace CourseApp
             DeltaValue = deltaValue;
         }
 
+        public CalculateTasks((double, double, double, double, double) value)
+        {
+            AValue = value.Item1;
+            BValue = value.Item2;
+            StartValue = value.Item3;
+            EndValue = value.Item4;
+            DeltaValue = value.Item5;
+        }
+
         public CalculateTasks(double aValue, double bValue)
         {
             AValue = aValue;

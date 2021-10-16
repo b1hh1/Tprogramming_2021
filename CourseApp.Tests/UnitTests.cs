@@ -2,7 +2,7 @@ namespace CourseApp.Tests
 {
     using Xunit;
 
-    public class TestsForTasks
+    public class UnitTests
     {
         [Theory]
         [InlineData(3, 2, 0.11, 1.56)]
@@ -30,7 +30,7 @@ namespace CourseApp.Tests
         [InlineData(-2, -1, 2, false)]
         [InlineData(3, 2, 3, true)]
         [InlineData(-3, -5, 0, true)]
-        public void TestInputInt(int input, int min, int max, bool expected)
+        public void TestCheckValuesInputInt(int input, int min, int max, bool expected)
         {
             var check = new CheckValues();
             var actual = check.IsValidInt(input, min, max);
@@ -48,7 +48,7 @@ namespace CourseApp.Tests
         [InlineData(-2.2, -1, 2, false)]
         [InlineData(3.31, 2, 3.31, true)]
         [InlineData(-3.8, -4.7, 0.2, true)]
-        public void TestInputDouble(double input, double min, double max, bool expected)
+        public void TestCheckValuesInputDouble(double input, double min, double max, bool expected)
         {
             var check = new CheckValues();
             var actual = check.IsValidDouble(input, min, max);
@@ -62,7 +62,7 @@ namespace CourseApp.Tests
         [InlineData("-1.2", -2, -1, false)]
         [InlineData("4.1", 4, 5, false)]
         [InlineData(" ", 4, 4, false)]
-        public void TestForInputInt(string item, int minValue, int maxValue, bool expected)
+        public void TestInputInt(string item, int minValue, int maxValue, bool expected)
         {
             var input = new InputValues();
             var actual = input.InputInt(minValue, maxValue, item);
@@ -76,7 +76,7 @@ namespace CourseApp.Tests
         [InlineData("-1", -2, -1, true)]
         [InlineData("4,1", 4, 5, true)]
         [InlineData(" ", 4, 4, false)]
-        public void TestForInputDouble(string item, int minValue, int maxValue, bool expected)
+        public void TestInputDouble(string item, int minValue, int maxValue, bool expected)
         {
             var input = new InputValues();
             var actual = input.InputDouble(minValue, maxValue, item);

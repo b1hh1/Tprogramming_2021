@@ -15,9 +15,10 @@ namespace CourseApp
         {
             var input = new InputValues();
             var listValues = new List<double>() { 0.08, 0.026, 0.35, 0.41, 0.51 };
-            Console.WriteLine(@"In this program you can:
-1 - Calculate with default values
-2 - Calculate with custom values
+            Console.WriteLine(@"
+In this program you can:
+1 - Operate with default values
+2 - Operate with custom values
 3 - Exit program
 What you want? Enter integer values.");
             switch (input.InputInt(1, 3))
@@ -41,7 +42,8 @@ What you want? Enter integer values.");
             var input = new InputValues();
             Console.Clear();
             CalculateDefaultValues(listValues);
-            Console.WriteLine(@"Available actions:
+            Console.WriteLine(@"
+Available actions:
 1 - Back to start page
 2 - Exit program
 What you want? Enter integer values.");
@@ -62,7 +64,8 @@ What you want? Enter integer values.");
         {
             var input = new InputValues();
             Console.Clear();
-            Console.WriteLine(@"Available actions:
+            Console.WriteLine(@"
+Available actions:
 1 - Enter custom values
 2 - Back to start page
 3 - Exit program
@@ -97,20 +100,8 @@ What you want? Enter integer values.");
         private void CalculateCustomValues(List<double> listValues)
         {
             Console.Clear();
-            var input = new InputValues();
-            Console.WriteLine("Enter your values:");
-            Console.Write("a = ");
-            var a = input.InputDouble(-Pow(10, 200), Pow(10, 200));
-            Console.Write("b = ");
-            var b = input.InputDouble(-Pow(10, 200), Pow(10, 200));
-            Console.Write("start = ");
-            var start = input.InputDouble(-Pow(10, 200), Pow(10, 200));
-            Console.Write("end = ");
-            var end = input.InputDouble(-Pow(10, 200), Pow(10, 200));
-            Console.Write("delta = ");
-            var delta = input.InputDouble(-Pow(10, 200), Pow(10, 200));
-            Console.Clear();
-            var task = new CalculateTasks(a, b, start, end, delta);
+            var values = InputCustomValues();
+            var task = new CalculateTasks(values);
             Console.WriteLine($"Calculated with custom values:");
             Output(task.StartCalculate(task.ListValue()));
             Output(task.StartCalculate(listValues));
@@ -121,7 +112,8 @@ What you want? Enter integer values.");
             var input = new InputValues();
             Console.Clear();
             CalculateCustomValues(listValues);
-            Console.WriteLine(@"Available actions:
+            Console.WriteLine(@"
+Available actions:
 1 - Calculate with another custom values
 2 - Back to previous page
 3 - Exit program
@@ -145,10 +137,27 @@ What you want? Enter integer values.");
         private void Output(List<(double, double)> lst)
         {
             Console.WriteLine("Task:");
-            for (int i = 0; i < lst.Count; i++)
+            foreach (var (x, y) in lst)
             {
-                Console.WriteLine($"  x = {lst[i].Item1:f2} y = {lst[i].Item2:f2}");
+                Console.WriteLine($"  x = {x:f2} y = {y:f2}");
             }
+        }
+
+        private (double, double, double, double, double) InputCustomValues()
+        {
+            var input = new InputValues();
+            Console.WriteLine("Enter your values:");
+            Console.Write("a = ");
+            var a = input.InputDouble(double.MinValue, double.MaxValue);
+            Console.Write("b = ");
+            var b = input.InputDouble(double.MinValue, double.MaxValue);
+            Console.Write("start = ");
+            var start = input.InputDouble(double.MinValue, double.MaxValue);
+            Console.Write("end = ");
+            var end = input.InputDouble(double.MinValue, double.MaxValue);
+            Console.Write("delta = ");
+            var delta = input.InputDouble(double.MinValue, double.MaxValue);
+            return (a, b, start, end, delta);
         }
     }
 }
