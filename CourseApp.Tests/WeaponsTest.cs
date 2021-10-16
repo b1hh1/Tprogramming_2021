@@ -8,7 +8,7 @@
         [Fact]
         public void GetModelPistol()
         {
-            var glock = new Pistol("Pisrol", "Glock18", 9.0);
+            var glock = new Pistol("Pistol", "Glock18", 9.0);
             var exp = "Glock18";
 
             Assert.Equal(exp, glock.Name);
