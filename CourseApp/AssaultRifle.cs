@@ -2,6 +2,8 @@
 {
     public class AssaultRifle : Weapon
     {
+        private ushort shoot = 0;
+
         public AssaultRifle(string model, int year, string owner)
             : this(model, 0, year, owner, false)
         {
@@ -22,5 +24,19 @@
         }
 
         public bool AutomaticShooting { get; set; }
+
+        public new string Shoot()
+        {
+            if (AutomaticShooting)
+            {
+                shoot = (ushort)(shoot + 3);
+            }
+            else
+            {
+                shoot++;
+            }
+
+            return $"Shoots: {shoot}";
+        }
     }
 }

@@ -47,28 +47,14 @@ namespace CourseApp.Tests
             Assert.Equal(exp, res);
         }
 
-        [Fact]
-        public void SetYearWithoutErrPistol()
+        [Theory]
+        [InlineData(1869, 1869)]
+        [InlineData(1760, -145)]
+        public void SetYearPistol(short exp, short year)
         {
             // arrange
             var colt = new Pistol("Glock", 1760, "Max");
-            colt.Year = 1869;
-            var exp = 1869;
-
-            // act
-            var res = colt.Year;
-
-            // assert
-            Assert.Equal(exp, res);
-        }
-
-        [Fact]
-        public void SetYearWithErrPistol()
-        {
-            // arrange
-            var colt = new Pistol("Glock", 1760, "Max");
-            colt.Year = -145;
-            var exp = 1760;
+            colt.Year = year;
 
             // act
             var res = colt.Year;
@@ -120,43 +106,15 @@ namespace CourseApp.Tests
             Assert.Equal(exp, res);
         }
 
-        [Fact]
-        public void SetCaliberWithoutErrPistol()
-        {
-            // arrange
-            var colt = new Pistol("Glock", 1760, "Max");
-            colt.Caliber = 14.5F;
-            var exp = 14.5F;
-
-            // act
-            var res = colt.Caliber;
-
-            // assert
-            Assert.Equal(exp, res);
-        }
-
-        [Fact]
-        public void SetCaliberWithErrLowBorderPistol()
+        [Theory]
+        [InlineData(14.5, 14.5)]
+        [InlineData(6.9, -14.5)]
+        [InlineData(6.9, 54.5)]
+        public void SetCaliberPistol(float exp, float caliber)
         {
             // arrange
             var colt = new Pistol("Glock", 6.9F, 1760, "Max");
-            colt.Caliber = -14.5F;
-            var exp = 6.9F;
-
-            // act
-            var res = colt.Caliber;
-
-            // assert
-            Assert.Equal(exp, res);
-        }
-
-        [Fact]
-        public void SetCaliberWithErrHighBorderPistol()
-        {
-            // arrange
-            var colt = new Pistol("Glock", 6.9F, 1760, "Max");
-            colt.Caliber = 54.5F;
-            var exp = 6.9F;
+            colt.Caliber = caliber;
 
             // act
             var res = colt.Caliber;
@@ -170,7 +128,6 @@ namespace CourseApp.Tests
         {
             // arrange
             var colt = new Pistol("Glock", 5.2F, 1760, "Max");
-            colt.Caliber = 5.2F;
             var exp = 5.2F;
 
             // act
@@ -240,28 +197,14 @@ namespace CourseApp.Tests
             Assert.Equal(exp, res);
         }
 
-        [Fact]
-        public void SetYearWithoutErrAssaultRifle()
+        [Theory]
+        [InlineData(1869, 1869)]
+        [InlineData(1760, -145)]
+        public void SetYearAssaultRifle(short exp, short year)
         {
             // arrange
             var aK47 = new AssaultRifle("AK47", 1760, "Max");
-            aK47.Year = 1869;
-            var exp = 1869;
-
-            // act
-            var res = aK47.Year;
-
-            // assert
-            Assert.Equal(exp, res);
-        }
-
-        [Fact]
-        public void SetYearWithErrAssaultRifle()
-        {
-            // arrange
-            var aK47 = new AssaultRifle("AK47", 1760, "Max");
-            aK47.Year = -145;
-            var exp = 1760;
+            aK47.Year = year;
 
             // act
             var res = aK47.Year;
@@ -313,43 +256,15 @@ namespace CourseApp.Tests
             Assert.Equal(exp, res);
         }
 
-        [Fact]
-        public void SetCaliberWithoutErrAssaultRifle()
-        {
-            // arrange
-            var aK47 = new AssaultRifle("AK47", 1760, "Max");
-            aK47.Caliber = 14.5F;
-            var exp = 14.5F;
-
-            // act
-            var res = aK47.Caliber;
-
-            // assert
-            Assert.Equal(exp, res);
-        }
-
-        [Fact]
-        public void SetCaliberWithErrLowBorderAssaultRifle()
+        [Theory]
+        [InlineData(14.5, 14.5)]
+        [InlineData(6.9, -14.5)]
+        [InlineData(6.9, 54.5)]
+        public void SetCaliberAssaultRifle(float exp, float caliber)
         {
             // arrange
             var aK47 = new AssaultRifle("AK47", 6.9F, 1760, "Max", true);
-            aK47.Caliber = -14.5F;
-            var exp = 6.9F;
-
-            // act
-            var res = aK47.Caliber;
-
-            // assert
-            Assert.Equal(exp, res);
-        }
-
-        [Fact]
-        public void SetCaliberWithErrHighBorderAssaultRifle()
-        {
-            // arrange
-            var aK47 = new AssaultRifle("AK47", 6.9F, 1760, "Max", true);
-            aK47.Caliber = 54.5F;
-            var exp = 6.9F;
+            aK47.Caliber = caliber;
 
             // act
             var res = aK47.Caliber;
@@ -372,15 +287,18 @@ namespace CourseApp.Tests
             Assert.Equal(exp, res);
         }
 
-        [Fact]
-        public void ShootsAssaultRifle()
+        [Theory]
+        [InlineData(4, false)]
+        [InlineData(12, true)]
+        public void ShootsAssaultRifle(ushort shoot, bool flag)
         {
             // arrange
-            var aK47 = new AssaultRifle("AK47", 5.2F, 1760, "Max", true);
+            var aK47 = new AssaultRifle("AK47", 1760, "Max");
+            aK47.AutomaticShooting = flag;
             aK47.Shoot();
             aK47.Shoot();
             aK47.Shoot();
-            var exp = "Shoots: 4";
+            var exp = $"Shoots: {shoot}";
 
             // act
             var res = aK47.Shoot();
