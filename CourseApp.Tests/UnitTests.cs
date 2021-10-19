@@ -25,7 +25,6 @@ namespace CourseApp.Tests
         [InlineData(0.1, 0.5, 0.1, 5)]
         [InlineData(0, 5, 1, 6)]
         [InlineData(0.25, 0.5, 0.05, 6)]
-        [InlineData(0.1, 0.1, 0, 1)]
         [InlineData(1.2, 2.4, 1.2, 2)]
         public void TestListCount(double start, double end, double delta, int expected)
         {
@@ -39,9 +38,6 @@ namespace CourseApp.Tests
         [InlineData(0, 1, 2, false)]
         [InlineData(1, 0, 2, true)]
         [InlineData(1, 1, 2, true)]
-        [InlineData(-1, 0, 1, false)]
-        [InlineData(-1, -1, -1, true)]
-        [InlineData(2, 2, 4, true)]
         public void TestCheckValuesInputInt(int input, int min, int max, bool expected)
         {
             var check = new CheckValues();
@@ -54,9 +50,6 @@ namespace CourseApp.Tests
         [InlineData(0.5, 1, 2, false)]
         [InlineData(1, 0, 2, true)]
         [InlineData(1.2, 1, 2, true)]
-        [InlineData(-1.4, 0, 1, false)]
-        [InlineData(-1.7, -1.7, -1, true)]
-        [InlineData(2.9, 2, 4, true)]
         public void TestCheckValuesInputDouble(double input, double min, double max, bool expected)
         {
             var check = new CheckValues();
