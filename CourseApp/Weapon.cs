@@ -2,9 +2,9 @@
 {
     public abstract class Weapon : IWeapon
     {
-        private ushort shoot = 0;
+        private ushort shoot;
         private float caliber;
-        private int year;
+        private ushort year;
 
         public float Caliber
         {
@@ -22,7 +22,7 @@
             }
         }
 
-        public int Year
+        public ushort Year
         {
             get
             {

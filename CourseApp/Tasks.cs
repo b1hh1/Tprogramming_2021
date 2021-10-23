@@ -13,17 +13,25 @@
 
         public double[] TaskA(double xn, double xk, double dx)
         {
-            int g = (int)(((xk - xn) / dx) + 1);
-            double[] results = new double[g];
-            int i = 0;
-            while (xn <= xk)
+            if (dx != 0)
             {
-                results[i] = Function(xn);
-                i++;
-                xn = xn + dx;
-            }
+                int g = (int)(((xk - xn) / dx) + 1);
+                double[] results = new double[g];
+                int i = 0;
+                while (xn <= xk)
+                {
+                    results[i] = Function(xn);
+                    i++;
+                    xn = xn + dx;
+                }
 
-            return results;
+                return results;
+            }
+            else
+            {
+                double[] results = { };
+                return results;
+            }
         }
 
         public double[] TaskB(double[] numbers)

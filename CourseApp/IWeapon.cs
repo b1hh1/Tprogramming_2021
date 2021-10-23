@@ -8,7 +8,7 @@
 
         float Caliber { get; set; }
 
-        int Year { get; set; }
+        ushort Year { get; set; }
 
         string Shoot();
     }
