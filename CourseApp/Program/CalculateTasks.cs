@@ -14,13 +14,13 @@ namespace CourseApp.Program
             DeltaValue = deltaValue;
         }
 
-        public CalculateTasks((double, double, double, double, double) value)
+        public CalculateTasks(List<double> listValues)
         {
-            AValue = value.Item1;
-            BValue = value.Item2;
-            StartValue = value.Item3;
-            EndValue = value.Item4;
-            DeltaValue = value.Item5;
+            AValue = listValues[0];
+            BValue = listValues[1];
+            StartValue = listValues[2];
+            EndValue = listValues[3];
+            DeltaValue = listValues[4];
         }
 
         public CalculateTasks(double aValue, double bValue)
