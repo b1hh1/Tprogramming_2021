@@ -21,15 +21,15 @@ In this program you can:
 2 - Get calculating with custom values
 3 - Exit program
 What you want? Enter integer values.");
-            switch (input.InputInt(1, 4))
+            switch (input.InputInt(1, 3))
             {
                 case 1:
-                    CaseOne(listValues);
+                    DefaultCalculations(listValues);
                     StartPage();
                     break;
 
                 case 2:
-                    CaseTwo(listValues, CaseThree());
+                    CustomCalculations(listValues, InputCustomValues());
                     StartPage();
                     break;
 
@@ -39,7 +39,7 @@ What you want? Enter integer values.");
             }
         }
 
-        private void CaseOne(List<double> listValues)
+        private void DefaultCalculations(List<double> listValues)
         {
             Console.Clear();
             var input = new InputValues();
@@ -49,7 +49,7 @@ What you want? Enter integer values.");
             Output(task.StartCalculate(listValues));
         }
 
-        private void CaseTwo(List<double> listValues, List<double> listCustomValues)
+        private void CustomCalculations(List<double> listValues, List<double> listCustomValues)
         {
             Console.Clear();
             var task = new CalculateTasks(listCustomValues);
@@ -67,7 +67,7 @@ What you want? Enter integer values.");
             }
         }
 
-        private List<double> CaseThree()
+        private List<double> InputCustomValues()
         {
             Console.Clear();
             var input = new InputValues();
