@@ -25,7 +25,7 @@
 
         public bool AutomaticShooting { get; set; }
 
-        public new string Shoot()
+        public new void Shoot()
         {
             if (AutomaticShooting)
             {
@@ -35,8 +35,6 @@
             {
                 shoot++;
             }
-
-            return $"Shoots: {shoot}";
         }
     }
 }

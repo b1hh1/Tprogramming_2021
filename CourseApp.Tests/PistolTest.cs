@@ -87,10 +87,10 @@ namespace CourseApp.Tests
             colt.Shoot();
             colt.Shoot();
             colt.Shoot();
-            var exp = "Shoots: 4";
+            var exp = "Shoots: 3";
 
             // act
-            var res = colt.Shoot();
+            var res = colt.ToString();
 
             // assert
             Assert.Equal(exp, res);

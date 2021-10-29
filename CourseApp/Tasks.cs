@@ -13,16 +13,28 @@
 
         public double[] TaskA(double xn, double xk, double dx)
         {
-            if (dx != 0)
+            if (dx > 0)
             {
-                int g = (int)(((xk - xn) / dx) + 1);
+                int g = (int)Math.Round(Math.Abs((xk - xn) / dx)) + 1;
                 double[] results = new double[g];
                 int i = 0;
-                while (xn <= xk)
+                for (double j = xn; j <= xk; j = j + dx)
                 {
-                    results[i] = Function(xn);
+                    results[i] = Function(j);
                     i++;
-                    xn = xn + dx;
+                }
+
+                return results;
+            }
+            else if (dx < 0)
+            {
+                int g = (int)(int)Math.Round(Math.Abs((xk - xn) / dx)) + 1;
+                double[] results = new double[g];
+                int i = 0;
+                for (double j = xn; j >= xk; j = j + dx)
+                {
+                    results[i] = Function(j);
+                    i++;
                 }
 
                 return results;

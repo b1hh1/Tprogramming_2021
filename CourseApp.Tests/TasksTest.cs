@@ -10,6 +10,9 @@ namespace CourseApp.Tests
         [InlineData(1, 10, 10, 1)]
         [InlineData(1, 0, 0, 1)]
         [InlineData(0, 0, 0, 0)]
+        [InlineData(7, -0.11, 0.19, 0.05)]
+        [InlineData(6, 0.36, 0.11, -0.05)]
+        [InlineData(7, 0.19, -0.11, -0.05)]
         public void TaskA(int exp, double xn, double xk, double dx)
         {
             // arrange

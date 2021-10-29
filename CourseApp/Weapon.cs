@@ -1,6 +1,6 @@
 ﻿namespace CourseApp
 {
-    public abstract class Weapon : IWeapon
+    public abstract class Weapon
     {
         private ushort shoot;
         private float caliber;
@@ -42,9 +42,13 @@
 
         public string Owner { get; set; }
 
-        public string Shoot()
+        public void Shoot()
         {
             shoot++;
+        }
+
+        public override string ToString()
+        {
             return $"Shoots: {shoot}";
         }
     }

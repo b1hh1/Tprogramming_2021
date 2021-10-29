@@ -94,8 +94,8 @@ namespace CourseApp.Tests
         }
 
         [Theory]
-        [InlineData(4, false)]
-        [InlineData(12, true)]
+        [InlineData(3, false)]
+        [InlineData(9, true)]
         public void ShootsAssaultRifle(ushort shoot, bool flag)
         {
             // arrange
@@ -107,7 +107,7 @@ namespace CourseApp.Tests
             var exp = $"Shoots: {shoot}";
 
             // act
-            var res = aK47.Shoot();
+            var res = aK47.ToString();
 
             // assert
             Assert.Equal(exp, res);
