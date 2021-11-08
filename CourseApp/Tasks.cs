@@ -4,13 +4,6 @@
 
     public class Tasks
     {
-        public double Function(double x = 0)
-        {
-            double sinAngle = Math.Sin(x);
-            double cosAngle = Math.Cos(x);
-            return ((sinAngle * sinAngle * sinAngle) + (cosAngle * cosAngle * cosAngle)) * Math.Log(x);
-        }
-
         public double[] TaskA(double xn, double xk, double dx)
         {
             if (dx > 0)
@@ -55,6 +48,13 @@
             }
 
             return results;
+        }
+
+        public double Function(double x = 0)
+        {
+            double sinAngle = Math.Sin(x);
+            double cosAngle = Math.Cos(x);
+            return ((sinAngle * sinAngle * sinAngle) + (cosAngle * cosAngle * cosAngle)) * Math.Log(x);
         }
     }
 }
