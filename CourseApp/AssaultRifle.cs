@@ -36,5 +36,10 @@
                 shoot++;
             }
         }
+
+        public override string ToString()
+        {
+            return $"Shoots: {shoot}";
+        }
     }
 }
