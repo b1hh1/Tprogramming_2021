@@ -4,13 +4,22 @@
 
     public class CalculatingAPersonsAge
     {
-        public void Dgf(int day, int month, int year)
+        public string CalculatingAge(DateTime born)
         {
-            long date1 = DateTime.Today.Ticks; // 20.07.2015 18:30:25
-            long date2 = new DateTime(year, month, day).Ticks; // 20.07.2015 15:30:25
-            long diff = date1 - date2;
-            DateTime dDate = DateTime.MinValue.AddTicks(diff);
-            Console.WriteLine($"You are {dDate.Year - 1} years, {dDate.Month - 1} months and {dDate.Day - 2} days");
+            return CalculatingAge(born, DateTime.Today);
+        }
+
+        public string CalculatingAge(DateTime born, DateTime end)
+        {
+            DateTime date = DateTime.MinValue.AddTicks(end.Ticks - born.Ticks);
+            if ((date.Day - 2) == 0 && (date.Month - 1) == 0)
+            {
+                return $"Congratulations on your {date.Year - 1}th birthday !!!";
+            }
+            else
+            {
+                return $"You are {date.Year - 1} years, {date.Month - 1} months and {date.Day - 2} days";
+            }
         }
     }
 }
