@@ -6,6 +6,8 @@
     {
         public static void Main(string[] args)
         {
+            var mike = new CalculatingAPersonsAge();
+            Console.WriteLine(mike.CalculatingAge(new DateTime(2002, 12, 20), new DateTime(2022, 1, 3)));
             var calc = new Calculator();
             Console.WriteLine($"5 * 10 = {calc.Multi(5, 10)}");
             var tasks = new Tasks();
