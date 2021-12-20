@@ -13,30 +13,34 @@ namespace CourseApp.Program
 
         public void StartPage()
         {
-            var input = new InputValues();
-            var listValues = new List<double>() { 0.08, 0.026, 0.35, 0.41, 0.51 };
-            Console.WriteLine(@"
-In this program you can:
-1 - Get calculating with default values
-2 - Get calculating with custom values
-3 - Exit program
-What you want? Enter integer values.");
-            switch (input.InputInt(1, 3))
+            var isEnabled = true;
+            while (isEnabled)
             {
-                case 1:
-                    DefaultCalculations(listValues);
-                    StartPage();
-                    break;
+                var input = new InputValues();
+                var listValues = new List<double>() { 0.08, 0.026, 0.35, 0.41, 0.51 };
+                Console.WriteLine(@"
+    In this program you can:
+    1 - Get calculating with default values
+    2 - Get calculating with custom values
+    3 - Exit program
+    What you want? Enter integer values.");
+                switch (input.InputInt(1, 3))
+                {
+                    case 1:
+                        DefaultCalculations(listValues);
+                        break;
 
-                case 2:
-                    CustomCalculations(listValues, InputCustomValues());
-                    StartPage();
-                    break;
+                    case 2:
+                        CustomCalculations(listValues, InputCustomValues());
+                        break;
 
-                case 3:
-                    Environment.Exit(0);
-                    break;
+                    case 3:
+                        isEnabled = false;
+                        break;
+                }
             }
+
+            Environment.Exit(0);
         }
 
         private void DefaultCalculations(List<double> listValues)
