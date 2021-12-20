@@ -14,7 +14,7 @@ namespace CourseApp.Program
         public void StartPage()
         {
             var isEnabled = true;
-            while(isEnabled)
+            while (isEnabled)
             {
                 var input = new InputValues();
                 var listValues = new List<double>() { 0.08, 0.026, 0.35, 0.41, 0.51 };
